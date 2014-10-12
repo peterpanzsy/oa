@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.wangan.domain">
+
+	<class name="Economy" table="economy">
+		<id name="id" type="java.lang.Long" length="100">
+            <generator class="native"/>
+		</id>
+		<property name="title" type="java.lang.String" >	</property>
+		<property name="content" type="java.lang.String" ></property>
+		<property name="date" type="java.util.Date" ></property>
+		
+		<!-- author属性，与用户User建立多对一的单向关系 -->
+		<many-to-one name="author" class="User" column="userid" ></many-to-one>
+	
+		<!-- attachments属性，单向与UploadFiles建立一对多的 -->
+		<set name="attachments">
+			<key column="ecoId" />
+			<one-to-many class="UploadFiles"/>
+		</set>
+		
+	</class>
+	
+</hibernate-mapping>

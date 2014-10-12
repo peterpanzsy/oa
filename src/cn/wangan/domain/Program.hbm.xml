@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.wangan.domain">
+
+	<class name="Program" table="program">
+		<id name="id" type="java.lang.Long" length="100">
+            <generator class="native"/>
+		</id>
+		<property name="name" type="java.lang.String" >	</property>
+		<property name="description" type="java.lang.String" ></property>
+		<property name="startTime" type="java.util.Date" ></property>
+		<property name="proceeding" type="java.lang.String" ></property>
+		<property name="end" ></property>
+		<property name="endTime" type="java.util.Date" ></property>
+		
+		
+		<!-- leader 属性，表示Program与User之间的多对1的关联，打算用外键的形式 -->
+		<many-to-one name="leader" class="User" column="leaderId" cascade="save-update" >
+		</many-to-one>
+		
+		
+		<!-- users属性，表示Program与User之间的多对多的关联 -->
+		<set name="users" table="pro_user" order-by="userId ASC">
+			<key column="programId"></key>
+			<many-to-many class="User" column="userId"></many-to-many>
+		</set>
+		
+		
+		<!-- trends属性，表示Program与Trend之间的1对多的关联 -->
+		<set name="trends" cascade="all">
+			<key column="programId"></key>
+			<one-to-many class="Trend"/>
+		</set>
+		<!-- currentTrend属性，表示Program与Trend之间的1对1的关系 -->
+		<many-to-one name="currentTrend" class="Trend" column="currentTrendId" unique="true" cascade="all"></many-to-one>
+		
+		<!-- report属性，表示Program与UploadFiles之间的1对1的关系（单向的关联关系比较好） -->
+		<many-to-one name="report" column="report" class="UploadFiles" unique="true"></many-to-one>
+	
+	
+	</class>
+	
+</hibernate-mapping>

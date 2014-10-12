@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+		"-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+		"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<validators>
+	<!-- 对岗位名称进行验证 -->
+	<field name="name">
+		<field-validator type="requiredstring">
+		<!-- 不能为null或者""字符串，默认会去掉前后的空格 -->
+			<param name="trim">true</param>
+			<message>岗位名称不能为空</message>
+		</field-validator>
+		<field-validator type="regex">
+		<!--  
+			<param name="expression"><![CDATA[\w{4,15}]]></param>
+				<message>岗位名称必须是字母或数字的组合且长度在4-15之间</message>
+			</field-validator>
+		-->
+	<param name="expression">^[\u0391-\uFFE5]+$</param>
+				<message>岗位名称必须是中文</message>
+		</field-validator>
+	</field>
+</validators>

@@ -1,0 +1,39 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    
+    <title>修改部门信息</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+  </head>
+  
+  <body>
+	<s:form action="user_edit">
+		<s:hidden name="id"></s:hidden>
+ 		登录名:<s:textfield name="loginName"></s:textfield>
+		<br />
+ 		姓名:<s:textfield name="name"></s:textfield>
+		<br />
+ 		性别:<s:radio list="{'男','女'}" name="gender"></s:radio>
+		<br />
+ 		岗位:<s:select list="roleList" name="roleId" multiple="true"
+			listKey="id" listValue="name"></s:select>
+		<br />
+		手机:<s:textfield name="phone"></s:textfield><br/>
+		出生日期：<s:textfield name="birthday"></s:textfield><br/>
+ 		学历:<s:radio list="{'本科','研究生','博士'}" name="education"></s:radio><br/>
+ 		
+		<s:submit value="提交"></s:submit>
+	</s:form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.wangan.domain">
+
+	<class name="Paper" table="paper">
+		<id name="id" type="java.lang.Long" length="100">
+            <generator class="native"/>
+		</id>
+		<property name="name" >	</property>
+		<property name="theme" ></property>
+		<property name="summary" ></property>
+		<property name="type" ></property>
+		<property name="state" ></property>
+		
+		<property name="magazineName" ></property>
+		<property name="publishTime" ></property>
+		<property name="description" >	</property>
+		<property name="qi" ></property>
+		<property name="juan" ></property>
+		<property name="pagination" ></property>
+		
+		<property name="SCIIndex" ></property>
+		<property name="EIIndex" ></property>
+		<property name="homeImportantArticle" ></property>
+		<property name="homeCoreArtile" ></property>
+		
+		<property name="SCIQuote" ></property>
+		<property name="EIQuote" ></property>
+		
+		<!-- authors属性 ，表示Paper与User之间的多对多的关系-->
+		<set name="authors" table="paper_user">
+			<key column="paperId"></key>
+			<many-to-many class="User" column="userId"></many-to-many>
+		</set>
+		<!-- program属性，表示Paper与Program之间的多对一的关系，单向的关系 -->
+		<many-to-one name="program" class="Program" column="programId"></many-to-one>
+		<!-- file属性，表示Paper与UploadFile的1对1的单向关系 -->
+		<many-to-one name="file" class="UploadFiles" column="fileId" unique="true"></many-to-one>
+	</class>
+	
+</hibernate-mapping>

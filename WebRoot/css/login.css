@@ -1,0 +1,6 @@
+body{background: url(../images/login_bg.jpg) no-repeat top center; color:#eee; font-family: "微软雅黑";}
+.title{width:100%; font-size: 24px; height:50px; line-height: 50px; padding: 0 20px;}
+.title span{float:right; font-size: 18px;}
+.login{width:583px;margin:0 auto;padding-top:200px; padding-left: 60px;	  }
+.login_btn{width:95px; margin-left:215px;}
+.alert-warning{width:481px;}

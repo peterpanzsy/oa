@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.wangan.domain">
+
+	<class name="Patent" table="patent">
+		<id name="id" type="java.lang.Long" length="100">
+            <generator class="native"/>
+		</id>
+		<property name="name" >	</property>
+		<property name="authorizationNumber" ></property>
+		<property name="description" ></property>
+		<property name="type" >	</property>
+		
+		<!-- inventors属性 ，表示Patent与User之间的多对多的关系-->
+		<set name="inventors" table="patent_user">
+			<key column="patentId"></key>
+			<many-to-many class="User" column="userId"></many-to-many>
+		</set>
+	</class>
+	
+</hibernate-mapping>

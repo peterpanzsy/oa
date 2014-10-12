@@ -1,0 +1,37 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+<session-factory>
+
+	<property name="hibernate.dialect">
+		org.hibernate.dialect.MySQL5InnoDBDialect
+	</property>
+
+	<!-- 其他配置信息 -->
+	<property name="show_sql">false</property>
+	<property name="hbm2ddl.auto">update</property>
+
+	<!-- 解决编码问题 -->
+	<property name="connection.useUnicode">true</property>
+	<property name="connection.characterEncoding">UTF-8</property>
+	<mapping resource="cn/wangan/domain/User.hbm.xml" />
+	<mapping resource="cn/wangan/domain/Privilege.hbm.xml" />
+	<mapping resource="cn/wangan/domain/Role.hbm.xml" />
+	<mapping resource="cn/wangan/domain/Book.hbm.xml" />
+	<mapping resource="cn/wangan/domain/file.hbm.xml" />
+	<mapping resource="cn/wangan/domain/Information.hbm.xml" />
+	<mapping resource="cn/wangan/domain/reply.hbm.xml" />
+	<mapping resource="cn/wangan/domain/Servers.hbm.xml" />
+	<mapping resource="cn/wangan/domain/Economy.hbm.xml" />
+	<mapping resource="cn/wangan/domain/Program.hbm.xml" />
+	<mapping resource="cn/wangan/domain/Trend.hbm.xml" />
+	<mapping resource="cn/wangan/domain/Paper.hbm.xml" />
+	<mapping resource="cn/wangan/domain/Patent.hbm.xml" />
+	<mapping resource="cn/wangan/domain/Activity.hbm.xml" />
+	<mapping resource="cn/wangan/domain/Award.hbm.xml" />
+
+
+</session-factory>
+</hibernate-configuration>

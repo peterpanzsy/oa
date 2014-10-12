@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+		"-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+		"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<validators>
+	<!-- 对发件人进行验证 -->
+	<field name="title">
+		<field-validator type="requiredstring">
+		<!-- 不能为null或者""字符串，默认会去掉前后的空格 -->
+			<param name="trim">true</param>
+			<message>标题不能为空</message>
+		</field-validator>
+	</field>
+</validators>

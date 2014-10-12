@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.wangan.domain">
+
+	<class name="Trend" table="trend">
+		<id name="id" type="java.lang.Long" length="100">
+            <generator class="native"/>
+		</id>
+		<property name="content" type="java.lang.String" ></property>
+		<property name="time" type="java.util.Date" ></property>
+
+		<!-- program属性，表示Trend与program之间的多对一的关联关系 -->
+		<many-to-one name="program" class="Program" column="programId"></many-to-one>
+	</class>
+	
+</hibernate-mapping>

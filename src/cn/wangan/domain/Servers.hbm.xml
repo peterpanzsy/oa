@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="cn.wangan.domain">
+
+	<class name="Servers" table="servers">
+		<id name="id" type="java.lang.Long" length="100">
+            <generator class="native"/>
+		</id>
+		<property name="address" type="java.lang.String" >	</property>
+		<property name="ip" type="java.lang.String" ></property>
+		<property name="system" type="java.lang.String"></property>
+		<property name="purpose" type="java.lang.String" ></property>
+		<property name="description" type="java.lang.String"></property>
+		<property name="configure" type="java.lang.String"></property>
+		<property name="username" type="java.lang.String"></property>
+		<!-- author属性，与用户User建立多对一的单向关系
+		<many-to-one name="user" class="User" column="userid" ></many-to-one>
+		 -->
+	</class>
+	
+</hibernate-mapping>
