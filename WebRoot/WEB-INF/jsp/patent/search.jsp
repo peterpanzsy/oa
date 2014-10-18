@@ -65,9 +65,10 @@
                                     <s:property value="name"/>
                                 </td>
                                 <td>
-                                    <s:iterator value="invertors">
+                                   <!--  <s:iterator value="invertors">
                                     	<s:property value="name"/>
-                                    </s:iterator>
+                                    </s:iterator> -->
+                                    <s:property value="username"/>
                                 </td>
                                 <td>
                                     <s:property value="authorizationNumber"/>

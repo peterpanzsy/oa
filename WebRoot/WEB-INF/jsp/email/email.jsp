@@ -29,6 +29,7 @@
             <span>Mail</span>
           </p>
         </div>
+        <s:debug></s:debug>
         <div class="info_content">
 	          <s:form action="email_send" cssClass="form-horizontal" role="form" enctype="multipart/form-data">
 		<s:token></s:token>				 

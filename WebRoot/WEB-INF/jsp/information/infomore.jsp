@@ -35,7 +35,6 @@
             	 <li><a href="info_show?id=${id}"><s:property value="title"/></a><span><s:date name="date" format="yyyy-MM-dd" /></span></li>
             </s:iterator>
           </ul>
-         </table>
          <!--这是新加的东东-->
                     <div class="pages">
                         <ul class="pagination col-sm-8">

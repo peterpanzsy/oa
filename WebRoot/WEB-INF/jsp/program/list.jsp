@@ -79,9 +79,10 @@
               				 <td class="name">${name}</td>
 			                  <td class="leader_name" name="leader_name">${leader.name}</td>
 			                  <td class="aaausers">
-			                  	<s:iterator value="users">
+			                  	<%-- <s:iterator value="users">
 			                  		${name}
-			                  	</s:iterator>
+			                  	</s:iterator> --%>
+			                  	${users_names} 
 			                  </td>
 			                  <td>${currentTrend.content}</td>                  
 			                  <td>
@@ -292,7 +293,7 @@
     			var $parent = $(this).parents();
 				$("#project_name").attr("value",$parent.children('.name').text());
 				$("#project_leader").attr("value",$parent.children('.leader_name').text());
-				var users =$parent.children('.aaausers').text().replace(/[\r\n]/g,"");
+				var users =$parent.children('.aaausers').text()/* .replace(/[\r\n]/g,"") */;
 				users = users.replace(/\ +/g," ");
 				users = users.replace(/[\t]/g,"").trim();
 				$("#project_users").attr("value",users);

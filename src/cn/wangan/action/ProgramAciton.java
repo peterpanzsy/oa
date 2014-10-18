@@ -116,7 +116,7 @@ public class ProgramAciton extends ActionSupport implements
 
 	/** 添加 */
 	public String add() throws Exception {
-		try {
+		/*try {
 			String[] username = usernames.split(",");
 			boolean flag = true;
 			for(String u :username){
@@ -140,7 +140,7 @@ public class ProgramAciton extends ActionSupport implements
 				addFieldError("userError", "用户名不存在");
 				//TODO 暂时先跳转到这个页面，以后这个错误信息要回显
 				return "addsuccess";
-			}
+			}*/
 			//封装元素
 			Program p = new Program();
 			p.setName(model.getName());
@@ -149,14 +149,15 @@ public class ProgramAciton extends ActionSupport implements
 			p.setEnd(0);
 			User user = (User)ActionContext.getContext().getSession().get("user");
 			p.setLeader(user);
+			p.setUsers_names(usernames);
 			p.setProceeding("立项阶段");
-			p.setUsers(users);
+			/*p.setUsers(users);*/
 			//封装到数据库
 			programService.save(p);
-		} catch (Exception e) {
+	/*	} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(Logger2File.getTrace(e)); //将异常输出到文件
-		}
+		}*/
 		return "toList";
 	}
 
@@ -209,11 +210,11 @@ public class ProgramAciton extends ActionSupport implements
 			map.put("name",program.getName());
 			map.put("leader",program.getLeader().getName());
 			StringBuffer username =new StringBuffer();
-			for(User u:program.getUsers()){
+			/*for(User u:program.getUsers()){
 				username.append(u.getName()).append("  ");
-			}
+			}*/
 			
-			map.put("username",username.toString());
+			map.put("username",program.getUsers_names());
 			
 			map.put("description", program.getDescription());
 			

@@ -13,8 +13,10 @@
 		<property name="description" type="java.lang.String" ></property>
 		<property name="startTime" type="java.util.Date" ></property>
 		<property name="proceeding" type="java.lang.String" ></property>
+		<property name="users_names" type="java.lang.String" ></property>
 		<property name="end" ></property>
 		<property name="endTime" type="java.util.Date" ></property>
+		
 		
 		
 		<!-- leader 属性，表示Program与User之间的多对1的关联，打算用外键的形式 -->

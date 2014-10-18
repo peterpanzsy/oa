@@ -87,7 +87,7 @@
 										<td class="setRoleUI">
 								 			<button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal4">设置角色</button>
 								 		</td>
-									<tr />
+									<tr/>
 	   </s:iterator>
    
             </table>
@@ -259,7 +259,6 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="myModalLabel">权限设置</h4>
       </div>
-      <s:debug></s:debug>
       <s:form action="user_setRole">
       	<s:hidden name="id" value="" id="user_setRole_id"></s:hidden>
       <div class="modal-body">

@@ -71,7 +71,7 @@ public class PatentAction  extends ActionSupport implements ModelDriven<Patent> 
 	public String editUI(){
 		try {
 			Patent patent = patentService.findById(model.getId());
-			if(patent.getInventors()!=null){
+			/*if(patent.getInventors()!=null){
 				StringBuffer sb = new StringBuffer();
 				int i = 0;
 				for(User u:patent.getInventors()){
@@ -83,7 +83,8 @@ public class PatentAction  extends ActionSupport implements ModelDriven<Patent> 
 					i++;
 				}
 				map.put("username",sb.toString());
-			}
+			}*/
+			map.put("username",patent.getUsername());
 			map.put("name",patent.getName());
 			map.put("authorizationNumber",patent.getAuthorizationNumber());
 			map.put("description",patent.getDescription());
@@ -98,7 +99,7 @@ public class PatentAction  extends ActionSupport implements ModelDriven<Patent> 
 	public String edit(){
 		try {
 			Patent patent = patentService.findById(model.getId());
-			Set<User> users = new HashSet<User>();
+			/*Set<User> users = new HashSet<User>();
 			if(username!=null && !("".equals(username.trim()))){
 				for(String s:username.split(";")){
 					//检验用户是否存在,之前写的有问题，导致现在只能这样，
@@ -113,8 +114,8 @@ public class PatentAction  extends ActionSupport implements ModelDriven<Patent> 
 						return "input"; 
 					}
 				}
-			}
-			patent.setInventors(users);
+			}*/
+			//patent.setInventors(users);
 			saveModel(patent);
 			patentService.update(patent);
 		} catch (Exception e) {
@@ -125,9 +126,9 @@ public class PatentAction  extends ActionSupport implements ModelDriven<Patent> 
 	}
 	/*添加*/
 	public String add(){
-		try {
+		/*try {*/
 			Patent patent = new Patent();
-			Set<User> users = new HashSet<User>();
+			/*Set<User> users = new HashSet<User>();
 			if(username!=null && !("".equals(username.trim()))){
 				for(String s:username.split(";")){
 					//检验用户是否存在,之前写的有问题，导致现在只能这样，
@@ -143,13 +144,13 @@ public class PatentAction  extends ActionSupport implements ModelDriven<Patent> 
 					}
 				}
 			}
-			patent.setInventors(users);
+			patent.setInventors(users);*/
 			saveModel(patent);
 			patentService.save(patent);
-		} catch (Exception e) {
+		/*} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(Logger2File.getTrace(e)); //将异常输出到文件
-		}
+		}*/
 		
 		return "toList";
 	}
@@ -187,6 +188,7 @@ public class PatentAction  extends ActionSupport implements ModelDriven<Patent> 
 	}
 	
 	private void saveModel(Patent patent) {
+		patent.setUsername(model.getUsername());
 		patent.setAuthorizationNumber(model.getAuthorizationNumber());
 		patent.setDescription(model.getDescription());
 		patent.setName(model.getName());

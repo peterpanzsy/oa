@@ -69,7 +69,7 @@
 							<s:property value="programName"/> 
 						</td>       
 						<td>
-							<s:property value="user.name"/> 
+							<s:property value="username"/> 
 						</td>   
 						<td>
 							<s:property value="name"/> 
@@ -156,13 +156,13 @@
                 <div class="form-group">
                   <label class="col-sm-4 control-label">获奖项目名称：</label>
                   <div class="col-sm-6">
-                    <input name="programName" type="text" class="form-control" placeholder="填入获奖名称" >
+                    <input name="programName" type="text" class="form-control" placeholder="填入获奖名称" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-4 control-label">获奖者姓名：</label>
                   <div class="col-sm-6">
-                    <input name="username" type="text" class="form-control" placeholder="以空格为间隔" >
+                    <input name="username" type="text" class="form-control" placeholder="以分号为间隔" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -226,7 +226,7 @@
                 <div class="form-group">
                   <label class="col-sm-4 control-label">获奖者姓名：</label>
                   <div class="col-sm-6">
-                    <input id="award_username" name="username" type="text" class="form-control" placeholder="以空格为间隔" >
+                    <input id="award_username" name="username" type="text" class="form-control" placeholder="以分号为间隔" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -293,7 +293,6 @@
     	$(function(){
     		$('.edit').click(function(){
     			var id = $(this).parents().attr("id");
-    			alert(id);
     				$.post("award_editUI",{"id":id},function(data,textStatus){
     				$("#award_grade").attr("value",data.grade);
     				$("#award_name").attr("value",data.name);

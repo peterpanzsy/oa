@@ -22,7 +22,7 @@
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body onload="person_check()">
 	  <s:include value="/WEB-INF/jsp/Navi-bar/Navi-bar(admin).jsp"></s:include>
 	  <s:debug></s:debug>
 	  <s:hidden value="%{#u.id}"></s:hidden>
@@ -38,6 +38,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">         
           <h1 class="page-header">个人信息管理</h1>
           <div class="table-responsive">
+             
              <form id="defaultForm"  action="user_edit">
            
             <table class="table table-bordered">
@@ -60,7 +61,7 @@
                   <td width="10%"><strong>修改密码</strong></td>
                   <td>
                    <table cellpadding="10">
-                     <tr><td>输入原密码：</td><td><input type="password" name="password" class="form-control" placeholder="填入你的密码"></td></tr>
+                     <tr><td>输入原密码：</td><td><input type="password"  name="password" class="form-control" placeholder="填入你的密码"></td></tr>
                      <tr><td>输入新密码：</td><td><input type="password" name="newpassword1" class="form-control" placeholder="填入新的密码"></td></tr>
                      <tr><td>确认新密码:</td><td><input type="password" name="newpassword2" class="form-control" placeholder="再次填入新的密码"></td></tr>
                    </table>
@@ -69,7 +70,7 @@
                 </tr>
                 <tr>
                   <td width="10%"><strong>真实姓名： *</strong></td>
-                  <td><input type="text" name="name" placeholder  ="" class="form-control" value="${u.name }" required>
+                  <td><input type="text" name="name"   placeholder  ="" class="form-control" value="${u.name }" required>
                   </td>           
                 </tr>
                 <tr>
@@ -96,13 +97,13 @@
                 </tr>
                 <tr>
                   <td width="10%"><strong>专业： *</strong></td>
-                  <td><input type="text" name="major"placeholder  ="" class="form-control" value="${u.major}" required>
+                  <td><input type="text" name="major"  placeholder  ="" class="form-control" value="${u.major}" >
                   </td>           
                 </tr>
                 <tr>
                   <td width="10%"><strong>生日：*</strong></td>
                   <td><div class="input-group date form_date col-sm-6" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                    <input class="form-control" size="16" type="text" name="birthday" value="${u.birthday}" readonly required>
+                    <input class="form-control" size="16" type="text" name="birthday" value="${u.birthday}" readonly >
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>
@@ -117,38 +118,38 @@
 
                 <tr>
                   <td width="10%"><strong>联系方式： *</strong></td>
-                  <td><input placeholder  ="" name="phone" class="form-control" value="${u.phone }"  required pattern="[0-9]{11}" title="请输入正确的手机格式!">
+                  <td><input placeholder  ="" name="phone" class="form-control" value="${u.phone }"   pattern="[0-9]{11}" title="请输入正确的手机格式!">
                   </td>           
                 </tr>
                 <tr>
                   <td width="10%"><strong>紧急联系人和联系方式 *</strong></td>
-                  <td><table><tr><td>紧急联系人：</td><td><input type="text" name="contactor"value="${u.contactor }"  class="form-control" required></td><td>&nbsp;&nbsp;&nbsp;</td><td>联系方式：</td><td><input type="text" class="form-control" name="ephone" value="${u.ephone }" required pattern="[0-9]{11}" title="请输入正确的手机格式!"></td></tr></table>
+                  <td><table><tr><td>紧急联系人：</td><td><input type="text" name="contactor"value="${u.contactor }"  class="form-control" ></td><td>&nbsp;&nbsp;&nbsp;</td><td>联系方式：</td><td><input type="text" class="form-control" name="ephone" value="${u.ephone }"  pattern="[0-9]{11}" title="请输入正确的手机格式!"></td></tr></table>
                   </td>           
                 </tr>
                 <tr>
                   <td width="10%"><strong>常用邮箱： *</strong></td>
-                  <td><input type="email" name="email" placeholder  ="" class="form-control" value="${u.email }" required>
+                  <td><input type="email" name="email" placeholder  ="" class="form-control" value="${u.email }" >
                   </td>           
                 </tr>
                 <tr>
                   <td width="10%"><strong>起始工作日期 *</strong></td>
-                  <td><input type="text" name="recruitment"class="form-control" value="${u.recruitment }" required pattern="[0-9]{4}" title="请输入正确的年份">
+                  <td><input type="text" name="recruitment"class="form-control" value="${u.recruitment }"  pattern="[0-9]{4}" title="请输入正确的年份">
                   </td>           
                 </tr>
                 <tr>
                   <td width="10%"><strong>个人经历（重点项目经历） *</strong></td>
-                  <td><textarea name="resume" id="" name="resume"cols="30" rows="5" class="form-control"  required>${u.resume}</textarea></td>           
+                  <td><textarea name="resume" id="" name="resume"cols="30" rows="5" class="form-control"  >${u.resume}</textarea></td>           
                 </tr>
                 <tr>
                   <td width="10%"><strong>毕业后去向（想法） *</strong></td>
-                  <td><textarea name="graduation" id="" name="graduation"cols="30" rows="5" class="form-control" required>${u.graduation }</textarea>
+                  <td><textarea name="graduation" id="" name="graduation"cols="30" rows="5" class="form-control" >${u.graduation }</textarea>
                   </td>           
                 </tr>
-
+				
               </table>
-              <p align="center">
-                <button type="submit" class="btn btn-success">确认修改</button>
-                <button class="btn">取消</button>
+              	<p align="center">
+                <button type="submit" class="btn btn-primary">提交修改</button>
+                <!-- <button class="btn">取消</button> -->
               </p>
               </form>
            </div>
@@ -218,7 +219,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
-    <script src="js/bootstrapValidator.js"></script>
+    <%-- <script src="js/bootstrapValidator.js"></script> --%>
      <script>
     $(function(){
         $('.form_date').datetimepicker({
@@ -237,7 +238,7 @@
     </script>
 <!--表单验证-->
   <script>
-    $(function(){
+    /* $(function(){
     	$('#defaultForm').bootstrapValidator({
         message: 'This value is not valid',
         feedbackIcons: {
@@ -265,7 +266,7 @@
                 }
             }
             }});
-    })
+    }) */
 </script>
 <!--图片预览-->
 	<script>  
@@ -363,5 +364,8 @@
           	</s:iterator> 
     });
     </script>
+    <!-- javascript to validate form containing function check() -->
+    <script src="js/jquery.validate.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/form-validation.js"></script>
 </body>
 </html>

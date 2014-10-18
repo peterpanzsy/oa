@@ -34,7 +34,7 @@
 	         <h1><s:property value="title"></s:property></h1>	         
 	         <span class="time"><s:date name="date" format="yyyy-MM-dd" /></span>
 	         <div class="info_main">
-	         <s:property value="content" escape="false"></s:property>
+	         <s:property value="content" escape="false"/>
 	         	<s:iterator value="attachments">
 	            	  <p class="append">
 	            	<strong>附件：</strong>

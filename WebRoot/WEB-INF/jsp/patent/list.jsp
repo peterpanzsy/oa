@@ -71,9 +71,10 @@
                                     <s:property value="name"/>
                                 </td>
                                 <td>
-                                    <s:iterator value="invertors">
+                                   <!--  <s:iterator value="invertors">
                                     	<s:property value="name"/>
-                                    </s:iterator>
+                                    </s:iterator> -->
+                                    <s:property value="username"/>
                                 </td>
                                 <td>
                                     <s:property value="authorizationNumber"/>
@@ -90,7 +91,7 @@
                                   
 				                  <td>
 				                  		<a href="patent_delete?id=${id}">
-					                  		<button type="button" class="btn btn-xs btn-primary">删除</button>
+					                  		<button type="button" class="btn btn-xs btn-primary" onClick="return confirm('确定要删除吗？')">删除</button>
 				                		</a>
 				                  </td>
                             </tr>
@@ -146,25 +147,25 @@
         <h4 class="modal-title" id="myModalLabel">添加专利</h4>
       </div>
       <div class="modal-body">
-          <s:form action="patent_add" cssClass="form-horizontal" role="form" enctype="multipart/form-data">
+          <s:form action="patent_add" id="addPatent" cssClass="form-horizontal" role="form" enctype="multipart/form-data">
                 <s:token></s:token>
                 <div class="form-group">
                   <label class="col-sm-4 control-label">专利名称：</label>
                   <div class="col-sm-6">
-                    <input name="name" type="text" class="form-control" placeholder="填入专利名称" >
+                    <input name="name" type="text" class="form-control" placeholder="填入专利名称" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-4 control-label">发明人：</label>
                   <div class="col-sm-6">
-                    <input name="username" type="text" class="form-control" placeholder="发明人的登录名，用;号隔开"" >
+                    <input name="username" type="text" class="form-control" placeholder="发明人的登录名，用;号隔开" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-4 control-label">授权公告号：</label>
                   <div class="col-sm-6">
                   <!-- 个人所属项目的列表，用列表的形式来展示 -->
-                    <input name="authorizationNumber" type="text" class="form-control" placeholder="授权公告号" >
+                    <input name="authorizationNumber" type="text" class="form-control" placeholder="授权公告号" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -195,28 +196,28 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">修改论文信息</h4>
+        <h4 class="modal-title" id="myModalLabel">修改专利信息</h4>
       </div>
       <div class="modal-body">
-          <s:form action="patent_edit" cssClass="form-horizontal" role="form" enctype="multipart/form-data">
+          <s:form action="patent_edit" id="editPatent" cssClass="form-horizontal" role="form" enctype="multipart/form-data">
               	<s:hidden name="id" value="" id="patent_id"></s:hidden>
                 <div class="form-group">
                   <label class="col-sm-4 control-label">专利名称：</label>
                   <div class="col-sm-6">
-                    <input id="patent_name" name="name" type="text" class="form-control" placeholder="填入专利名称" >
+                    <input id="patent_name" name="name" type="text" class="form-control" placeholder="填入专利名称" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-4 control-label">发明人：</label>
                   <div class="col-sm-6">
-                    <input id="patent_username" name="username" type="text" class="form-control" placeholder="发明人的登录名，用;号隔开"" >
+                    <input id="patent_username" name="username" type="text" class="form-control" placeholder="发明人的登录名，用;号隔开" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-sm-4 control-label">授权公告号：</label>
                   <div class="col-sm-6">
                   <!-- 个人所属项目的列表，用列表的形式来展示 -->
-                    <input id="patent_authorizationNumber"  name="authorizationNumber" type="text" class="form-control" placeholder="授权公告号" >
+                    <input id="patent_authorizationNumber"  name="authorizationNumber" type="text" class="form-control" placeholder="授权公告号" required>
                   </div>
                 </div>
                 <div class="form-group">

@@ -14,7 +14,7 @@
 		<property name="date" type="java.lang.String"></property>
 		<property name="researchInterests" type="java.lang.String"></property>
 		<property name="programName" type="java.lang.String" ></property>
-	
+		<property name="username" type="java.lang.String" >	</property>
 		<many-to-one name="user" class="User" column="userId" unique="true"></many-to-one>
 		
 	</class>

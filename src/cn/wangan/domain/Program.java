@@ -38,6 +38,8 @@ public class Program implements Serializable{
 	private User leader;
 	//组员
 	private Set<User> users;
+	//*（临时）参与人员姓名
+	private String users_names;
 	//简单的动态信息
 	private Set<Trend> trends;
 	//最新的动态
@@ -116,6 +118,13 @@ public class Program implements Serializable{
 	public void setTrends(Set<Trend> trends) {
 		this.trends = trends;
 	}
+	public String getUsers_names() {
+		return users_names;
+	}
+	public void setUsers_names(String users_names) {
+		this.users_names = users_names;
+	}
+	
 	
 	
 	

@@ -9,6 +9,7 @@
 		<id name="id" type="java.lang.Long" length="100">
             <generator class="native"/>
 		</id>
+		<property name="username"></property>
 		<property name="name" >	</property>
 		<property name="theme" ></property>
 		<property name="summary" ></property>

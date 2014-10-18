@@ -34,6 +34,7 @@ import sun.misc.BASE64Encoder;
 import cn.wangan.domain.MyEmail;
 import cn.wangan.exception.EmailException;
 import cn.wangan.service.MyEmailService;
+import cn.wangan.utils.Logger2File;
 
 @Service("myEmailService")
 @Transactional
@@ -57,7 +58,9 @@ public class MyEmailServiceImpl implements MyEmailService {
 		try {
 			error = sendToUser();
 		}catch(Exception e) {
-			throw new EmailException(e);
+		   e.printStackTrace();
+		   //logger.error(Logger2File.getTrace(e)); //将异常输出到文件
+//			throw new EmailException(e);
 		}
 //		if (!init(myEmail.getUsername())) {
 //			error.put("errormsg","邮箱不在服务范围内，请联系管理员");
@@ -189,13 +192,13 @@ public class MyEmailServiceImpl implements MyEmailService {
 				message.saveChanges();
 			} catch (AddressException e) {
 				errormsg = "邮箱地址不正确，请查证";
-				throw new EmailException(e);
+//				throw new EmailException(e);
 			} catch (MessagingException e) {
 				errormsg = "邮件发送失败！错误原因：\n"+e.getMessage();
-				throw new EmailException(e);
+//				throw new EmailException(e);
 			} catch (UnsupportedEncodingException e) {
 				errormsg = "文件编码不正确\n"+e.getMessage();
-				throw new EmailException(e);
+//				throw new EmailException(e);
 			} 
 
 			//发送邮件
@@ -208,7 +211,7 @@ public class MyEmailServiceImpl implements MyEmailService {
 				ts.sendMessage(message, message.getAllRecipients());
 			} catch (NoSuchProviderException e1) {
 				errormsg = "邮件发送失败！错误原因：\n"+"身份验证错误!";
-				throw new EmailException(e1);
+//				throw new EmailException(e1);
 			} 
 			catch (MessagingException e1) {
 				errormsg = "邮件发送失败！错误原因：\n"+"邮箱服务器忙!";
@@ -219,7 +222,7 @@ public class MyEmailServiceImpl implements MyEmailService {
 						ts.close();
 					} catch (MessagingException e) {
 						System.out.println("ts关闭异常");
-						throw new EmailException(e);
+//						throw new EmailException(e);
 					}
 				}
 				ts = null;

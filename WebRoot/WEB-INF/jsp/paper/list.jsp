@@ -48,6 +48,8 @@
           	</s:iterator>
           </ul> 
         </div>
+        </div>
+        </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">         
           <h1 class="page-header">论文管理</h1>
           <div class="table-responsive">
@@ -71,9 +73,10 @@
                                     <s:property value="name"/>
                                 </td>
                                 <td>
-                                    <s:iterator value="authors">
+                                    <!-- <s:iterator value="authors">
                                     	<s:property value="name"/>
-                                    </s:iterator>
+                                    </s:iterator> -->
+                                    <s:property value="username"/>
                                 </td>
                                 <td>
                                     <s:property value="program.name"/>
@@ -94,7 +97,7 @@
                                 </td>
 				                  
 				                  <td>
-				                  		<a href="paper_delete?id=${id}">
+				                  		<a href="paper_delete?id=${id}" onClick="return confirm('确定要删除吗？')">
 					                  		<button type="button" class="btn btn-xs btn-primary">删除</button>
 				                		</a>
 				                  </td>
@@ -106,7 +109,47 @@
             		<button type="button" class="btn btn-sm btn-primary" >添加新论文</button><span></span>
             	</a>
             </div>
-            
+            <!--分页  -->
+            <div class="pages">
+              <ul class="pagination col-sm-8">
+                  <li>
+                      <a href="javascript:gotoPage(1)">首页</a>
+                  </li>
+                  <s:iterator begin="%{beginPageIndex}" end="%{endPageIndex}" var="num">
+                   <li>
+                   <s:if test="#num == currentPage">
+                       <span>${num}</span>
+                   </s:if>
+                   <s:else>
+                       <span onclick="gotoPage(${num});">${num}</span>
+                   </s:else>
+                </li>
+                  </s:iterator>
+              <li>
+                  <a href="javascript:gotoPage(${pageCount})">尾页</a>
+              </li>
+              </ul>
+              <div class="col-sm-4 right">
+                  <span>跳转至 </span>
+                            <select id="pn" onchange="gotoPage(this.value)">
+                            
+                                <s:iterator begin="1" end="%{pageCount}" var="num">
+                            		<s:if test=" #num == currentPage">
+                                   	 <option value="${num}"  selected='selected'>${num}</option>
+                                    </s:if>
+                                    <s:else>
+                                      <option value="${num}">${num}</option>
+                                    </s:else>
+                                </s:iterator>
+                            </select>页 
+                  <button class="btn btn-xs btn-primary" type="submit" value="GO">
+                      GO
+                  </button>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  
 
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -277,6 +320,10 @@
         })
 
     </script>
+    <script type="text/javascript">
+			function gotoPage(pageNum){
+		      	  window.location.href = "paper_list.action?pageNum=" + pageNum;};
+       </script>
         <script>
     $(function(){
     var name=$('.page-header').text();

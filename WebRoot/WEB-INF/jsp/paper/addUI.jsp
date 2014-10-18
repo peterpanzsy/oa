@@ -66,25 +66,25 @@
                 </tr>
                 <tr>
                   <td width="10%"><strong>作者 *</strong></td>
-                  <td><input name="username" class="form-control" type="text" placeholder="请填入作者的登录名，用;号隔开"></td>                  
+                  <td><input name="username" class="form-control" type="text" placeholder="请填入作者的姓名，用;号隔开" required></td>                  
                 </tr>
        			 <tr>
                   <td width="10%"><strong>状态*</strong></td>
                   <td>
-                  <s:radio name="state" list="{'已发表','审核中'}" value="'已发表'"></s:radio>               
+                  <s:radio name="state" list="{'已发表','审核中'}" value="'已发表'" ></s:radio>               
                 </td>
                 </tr>
                 <tr>
                   <td width="10%"><strong>题名 *</strong></td>
-                  <td><input name="name" class="form-control" type="text"></td>                  
+                  <td><input name="name" class="form-control" type="text" required></td>                  
                 </tr>
                 <tr>
                   <td width="10%"><strong>刊名 *</strong></td>
-                  <td><input name="magazineName" class="form-control" type="text"></td>                  
+                  <td><input name="magazineName" class="form-control" type="text" required></td>                  
                 </tr>
                 <tr>
                   <td width="10%"><strong>出版日期 *</strong></td>
-                  <td><input name="publishTime" class="form-control" type="text"></td>                  
+                  <td><input name="publishTime" class="form-control" type="text" required></td>                  
                 </tr>
 
                 <tr>
@@ -163,7 +163,7 @@
             </table>  
             <p align="center">
              <button class="btn btn-primary" type="submit">确认修改</button>
-             <button class="btn" type="submit">返回</button>
+             <!-- <button class="btn" >返回</button> -->
              </p>
            
           </div>

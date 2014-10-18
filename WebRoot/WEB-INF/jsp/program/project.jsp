@@ -53,9 +53,10 @@
 				</p>
 		        <p><strong>负责人：</strong>${leader.name}</p>
 		        <p><strong>小组成员：</strong>
-		        	<s:iterator value="users">
+		        	<!-- <s:iterator value="users">
 		        		<s:property value="name"/>
-		        	</s:iterator>
+		        	</s:iterator> -->
+		        	<s:property value="users_names"/>
 		        </p>
 		        <p><strong>项目最新进展：${currentTrend.content}</strong>
 		        </p>		        
@@ -166,13 +167,13 @@
                 <div class="form-group">
                   <label class="col-sm-4 control-label">项目名称：</label>
                   <div class="col-sm-6">
-                    <input name="name" type="text" class="form-control" placeholder="填入项目名称" >
+                    <input name="name" type="text" class="form-control" placeholder="填入项目名称" required>
                   </div>
                 </div>
           		<div class="form-group">
                   <label class="col-sm-4 control-label">小组成员：</label>
                   <div class="col-sm-6">
-                    <input name="usernames" type="text" class="form-control" placeholder="输入小组成员loginName，以分号分隔" >
+                    <input name="usernames" type="text" class="form-control" placeholder="输入小组成员，以分号分隔" >
                   </div>
                 </div>
                  <div class="form-group">

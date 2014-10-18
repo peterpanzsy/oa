@@ -23,8 +23,8 @@
   <div class="container infowrap" style="position:relative;">
     <!-- <div class="row">
       <div class="col-md-8">-->
-      <a href="admin_paper.html" class="btn btn-sm btn-warning" style="position:absolute; right:30px;top:14px;">添加我的获奖</a>
-        <div class="info_top resource_top">
+<!--       <a href="award" class="btn btn-sm btn-warning" style="position:absolute; right:30px;top:14px;">添加我的获奖</a>
+ -->        <div class="info_top resource_top">
           <p>
             <strong>获奖</strong>
             <span>award</span>
@@ -64,7 +64,7 @@
 							<s:property value="programName"/> 
 						</td>       
 						<td>
-							<s:property value="user.name"/> 
+							<s:property value="username"/> 
 						</td>   
 						<td>
 							<s:property value="name"/> 

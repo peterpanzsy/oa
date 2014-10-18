@@ -6,6 +6,8 @@ public class Patent {
 	private Long id;
 	//发明人
 	private Set<User> inventors;
+	//*(临时)用户名称
+		private String username;
 	
 	//专利名称
 	private String name;
@@ -52,5 +54,12 @@ public class Patent {
 	public void setType(String type) {
 		this.type = type;
 	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
 	
 }

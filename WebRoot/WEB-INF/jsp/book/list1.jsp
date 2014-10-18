@@ -19,7 +19,7 @@
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body onload="book_checker();server_checker()">
+<body onload="book_checker()">
 	  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -214,40 +214,40 @@
         <h4 class="modal-title" id="myModalLabel">修改图书信息</h4>
       </div>
       <div class="modal-body">
-          <form class="form-horizontal" role="form" action="book_edit">
+          <form class="form-horizontal" id="editBook" role="form" action="book_edit">
           		<s:hidden name="id"  id="book_id" value=""></s:hidden>
                 <div class="form-group">
                   <label class="col-sm-4 control-label">图书名：</label>
                   <div class="col-sm-6">
-                    <input id="book_name" name="name" type="text" class="form-control" placeholder="如何加入网安实验室" >
+                    <input id="book_name" name="name" type="text" class="form-control" placeholder="" >
                   </div>
                 </div>            
                  
                 <div class="form-group">
                   <label class="col-sm-4 control-label">作者：</label>
                   <div class="col-sm-6">
-                    <input id="book_author" name="author" type="text" class="form-control" placeholder="陶爷">
+                    <input id="book_author" name="author" type="text" class="form-control" placeholder="">
                   </div>
                 </div>               
         
                 <div class="form-group">
                   <label class="col-sm-4 control-label">书柜号：</label>
                   <div class="col-sm-6">
-                    <input id="book_bookcase" name="bookcase" type="text" class="form-control" placeholder="001" >
+                    <input id="book_bookcase" name="bookcase" type="text" class="form-control" placeholder="" >
                   </div>
                 </div>   
 
                 <div class="form-group">
                   <label class="col-sm-4 control-label">出版社：</label>
                   <div class="col-sm-6">
-                    <input id="book_publish" name="publish" type="text" class="form-control" placeholder="西安交通大学出版社" >
+                    <input id="book_publish" name="publish" type="text" class="form-control" placeholder="" >
                   </div>
                 </div>      
                
                <div class="form-group">
                   <label class="col-sm-4 control-label">出版年份：</label>
                   <div class="col-sm-6">
-                    <input id="book_time" name="time" type="text" class="form-control" placeholder="2000-00-00" >
+                    <input id="book_time" name="time" type="text" class="form-control" placeholder="" >
                   </div>
                 </div> 
                 

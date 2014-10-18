@@ -58,6 +58,8 @@ public class InformationServiceImpl implements InformationService {
 		}
 		info.setAttachments(new HashSet<UploadFiles>(attachmentFiles));
 		infoDao.save(info);
+		attachmentFiles.clear();
+
 	}
 	
 	/**

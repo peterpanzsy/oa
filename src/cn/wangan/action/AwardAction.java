@@ -74,14 +74,14 @@ public class AwardAction extends ActionSupport implements ModelDriven<Award> {
 	public String add() {
 		try {
 			Award award = new Award();
-			if (username != null) {
+			/*if (username != null) {
 				User user = userService.getUserByName(username);
 				if (user != null) {
 					award.setUser(user);
 				} else {
 					award.setUser(null);
 				}
-			}
+			}*/
 			saveModel(award);
 			awardService.save(award);
 		} catch (Exception e) {
@@ -103,6 +103,7 @@ public class AwardAction extends ActionSupport implements ModelDriven<Award> {
 	}
 
 	public void saveModel(Award award) {
+		award.setUsername(model.getUsername());
 		award.setName(model.getName());
 		award.setGrade(model.getGrade());
 		award.setDate(model.getDate());
@@ -141,9 +142,10 @@ public class AwardAction extends ActionSupport implements ModelDriven<Award> {
 			map.put("grade", award.getGrade());
 			map.put("programName", award.getProgramName());
 			map.put("researchInterests", award.getResearchInterests());
-			if(award.getUser()!=null){
+			map.put("username", award.getUsername());
+			/*if(award.getUser()!=null){
 				map.put("username", award.getUser().getLoginName());
-			}
+			}*/
 		} catch (Exception e) {
 			 e.printStackTrace();
 			 logger.error(Logger2File.getTrace(e)); //将异常输出到文件

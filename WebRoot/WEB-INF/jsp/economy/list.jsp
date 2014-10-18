@@ -49,6 +49,7 @@
           	</s:iterator>
           </ul>    
         </div>
+       
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">         
           <h1 class="page-header">财务管理</h1>
           <div class="table-responsive">
@@ -94,7 +95,6 @@
             <div class="btm">
             	<s:a type="button" cssClass="btn btn-sm btn-primary" href="economy_addUI">发布财务信息</s:a>
             </div>
-         
             <!--这是新加的东东     -->
 		  <div class="pages">
               <ul class="pagination col-sm-8">
@@ -165,17 +165,24 @@
 			function gotoPage(pageNum){
 		      	  window.location.href = "economy_list.action?id=${id}&pageNum=" + pageNum;};
        </script>
-           <script>
+    
+    
+    <script>
     $(function(){
     var name=$('.page-header').text();
     console.log(name);
+    
     <s:iterator value="#session.topPrivileg">
           	var PrivilegName='${name}';
+          	
           	if(name==PrivilegName){
           	$("a:contains("+PrivilegName+")").parent().attr('class',"active");
           	}
+          	
           	</s:iterator> 
     });
     </script>
+    
+    
 </body>
 </html>

@@ -65,7 +65,7 @@
               </thead>
               <tbody>
               
-                	<s:iterator value="infoList" status="vs">
+                	<s:iterator value="recordList" status="vs">
                 		  <tr>
                 		 	 <s:hidden name="id"></s:hidden>
                 		  	 <td><s:property value="#vs.count"/></td>
@@ -82,6 +82,45 @@
             <div class="btm">
             	<a type="button" class="btn btn-sm btn-primary" href="info_addUI">发布新通知</a><span></span>
             </div>
+            
+            <!--分页  -->
+            <div class="pages">
+              <ul class="pagination col-sm-8">
+                  <li>
+                      <a href="javascript:gotoPage(1)">首页</a>
+                  </li>
+                  <s:iterator begin="%{beginPageIndex}" end="%{endPageIndex}" var="num">
+                   <li>
+                   <s:if test="#num == currentPage">
+                       <span>${num}</span>
+                   </s:if>
+                   <s:else>
+                       <span onclick="gotoPage(${num});">${num}</span>
+                   </s:else>
+                </li>
+                  </s:iterator>
+              <li>
+                  <a href="javascript:gotoPage(${pageCount})">尾页</a>
+              </li>
+              </ul>
+              <div class="col-sm-4 right">
+                  <span>跳转至 </span>
+                            <select id="pn" onchange="gotoPage(this.value)">
+                            
+                                <s:iterator begin="1" end="%{pageCount}" var="num">
+                            		<s:if test=" #num == currentPage">
+                                   	 <option value="${num}"  selected='selected'>${num}</option>
+                                    </s:if>
+                                    <s:else>
+                                      <option value="${num}">${num}</option>
+                                    </s:else>
+                                </s:iterator>
+                            </select>页 
+                  <button class="btn btn-xs btn-primary" type="submit" value="GO">
+                      GO
+                  </button>
+                  </div>
+                  </div>
           </div>
         </div>
       </div>
@@ -331,6 +370,10 @@
         })
 
     </script>
+    <script type="text/javascript">
+			function gotoPage(pageNum){
+		      	  window.location.href = "info_list.action?id=${id}&pageNum=" + pageNum;};
+       </script>
         <script>
     $(function(){
     var name=$('.page-header').text();

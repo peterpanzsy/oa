@@ -63,14 +63,15 @@
  <s:iterator value="recordList">
                             <tr>
                                 <td>
-                                    <a href="filedown_download?id=${file.id}">
+                                    <a href="paper_showDetail?id=${id}">
                                     	<s:property value="name"/>
                                     </a>
                                 </td>
                                 <td>
-                                    <s:iterator value="authors">
+                                    <!-- <s:iterator value="authors">
                                     	<s:property value="name"/>
-                                    </s:iterator>
+                                    </s:iterator> -->
+                                    <s:property value="username"/>
                                 </td>
                                 <td>
                                     <s:property value="program.name"/>

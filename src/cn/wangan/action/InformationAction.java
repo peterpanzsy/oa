@@ -71,8 +71,10 @@ public class InformationAction extends ActionSupport implements
 	/** 列表 */
 	public String list() throws Exception {
 		try {
-			List<Information> infoList = infoService.findAll();
-			ActionContext.getContext().put("infoList", infoList);
+			/*List<Information> infoList = infoService.findAll();
+			ActionContext.getContext().put("infoList", infoList);*/
+			PageBean pageBean = infoService.getPageBean(pageNum);
+			ActionContext.getContext().getValueStack().push(pageBean);
 		} catch (Exception e) {
 			 e.printStackTrace();
 			 logger.error(Logger2File.getTrace(e)); //将异常输出到文件

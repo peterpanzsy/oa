@@ -10,8 +10,9 @@
 		/> -->
 	<!-- 把主题设为simple -->
 	<constant name="struts.ui.theme" value="simple" />
-	
-		<!-- 全局引用自定义拦截器的配置 -->
+	<!-- 设置文件上传的大小 -->	
+	<constant name="struts.multipart.maxSize" value="88888888888"/>
+	<!-- 全局引用自定义拦截器的配置 -->
 	<package name="common-default" extends="json-default"
 		namespace="/">
 		
@@ -29,6 +30,9 @@
 			
 			<!-- 重新 定义一个拦截器栈 -->
 			<interceptor-stack name="mydefualt">
+				<interceptor-ref name="fileUpload">
+					<param name="maximumSize">88888888888888</param>
+				</interceptor-ref>
 				<interceptor-ref name="defaultStack"></interceptor-ref>
 				<interceptor-ref name="authority"></interceptor-ref>
 				<interceptor-ref name="checkPrivilegeInterceptor"></interceptor-ref>
@@ -57,7 +61,6 @@
             <result name="success">error.jsp</result>  
         </action> 
 	</package>
-		
 
 
 	<package name="default" namespace="/" extends="common-default">
@@ -79,6 +82,7 @@
 			<result name="manager">/WEB-INF/jsp/user/list1.jsp</result>
 			<result name="toList" type="redirectAction">user_manager</result>
 			<result name="exhibition">/WEB-INF/jsp/member/member.jsp</result>
+			<result name="input" type="redirectAction">user_person</result>
 		</action>
 		<!-- 与RoleAction相关的内容 -->
 		<action name="role_*" class="roleAction" method="{1}">
@@ -138,8 +142,7 @@
 		<action name="email_*" class="myEmailAction" method="{1}">
 			<result name="index">/WEB-INF/jsp/email/email.jsp</result>
 			<result name="success">/WEB-INF/jsp/email/success.jsp</result>
-
-			<result name="input">/WEB-INF/jsp/email/email.jsp</result>
+			<result name="input" type="redirectAction">email_index</result>
 		</action>
 
 		<!-- 与文件上传有关的Action -->
@@ -148,7 +151,7 @@
 			<result name="uploadUI">/WEB-INF/jsp/file/upload.jsp</result>
 			<result name="input">/WEB-INF/jsp/file/upload.jsp</result>
 			<interceptor-ref name="fileUpload">
-				<param name="maximumSize">8888888888888888</param>
+				<param name="maximumSize">8888888888</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
@@ -167,10 +170,10 @@
 		<action name="info_*" class="informationAction" method="{1}">
 			<result name="showOne">/WEB-INF/jsp/information/info_show.jsp</result>
 			<result name="list">/WEB-INF/jsp/information/list.jsp</result>
-			<result name="addUI">/WEB-INF/jsp/information/addUI.jsp</result>
+			<result name="addUI">/WEB-INF/jsp/information/newadd.jsp</result>
 			<result name="editUI">/WEB-INF/jsp/information/editUI2.jsp</result>
 			<result name="toList" type="redirectAction">info_list</result>
-			<result name="input">/WEB-INF/jsp/information/addUI.jsp</result>
+			<result name="input" type="redirectAction">info_showmore</result>
 			<result name="showmore">/WEB-INF/jsp/information/infomore.jsp</result>
 		</action>
 		
@@ -185,6 +188,7 @@
 			<result name="addUI">/WEB-INF/jsp/paper/addUI.jsp</result>
 			
 			<result name="toList" type="redirectAction">paper_list</result>
+			
 			<result name="input" type="redirectAction">paper_index</result>
 			 
 			<result name="editUI">/WEB-INF/jsp/paper/editUI.jsp</result>
@@ -199,6 +203,7 @@
 			<!-- 后台的论文展示 -->
 			<result name="list">/WEB-INF/jsp/patent/list.jsp</result>
 			<result name="toList" type="redirectAction">patent_list</result>
+			
 			<result name="input" type="redirectAction">patent_index</result>
 			
 			<result name="editUI" type="json">
@@ -217,6 +222,7 @@
 			<!-- 后台的管理页面展示 -->
 			<result name="list">/WEB-INF/jsp/award/list.jsp</result>
 			<result name="successSearch" >/WEB-INF/jsp/award/search.jsp</result>
+			
 			<result name="input" type="redirectAction">award_index</result>
 			
 			<result name="editUI" type="json">
@@ -237,7 +243,8 @@
   		  <result name="editUI">/WEB-INF/jsp/economy/editUI.jsp</result>
   		  
   		  <result name="toList" type="redirectAction">economy_list</result>
-  		  <result name="input" type="redirectAction">economy_list</result>
+  		  
+  		  <result name="input" type="redirectAction">economy_index</result>
   		  
   		  
 	    </action>
@@ -248,7 +255,7 @@
 			<result name="addsuccess" type="redirectAction">program_list</result>
 			<result name="show">/WEB-INF/jsp/program/list.jsp</result>
 			<result name="toList" type="redirectAction">program_show</result>
-			<result name="input" type="redirectAction">program_show</result>
+			<result name="input" type="redirectAction">program_list</result>
 			<result name="end" type="redirectAction">program_show</result>
 			
 			<result name="showDetail" type="json">
@@ -300,7 +307,7 @@
   		<!-- 与验证码有关的action -->
 		<action name="securityCodeImageAction" class="securityCodeImageAction" method="execute">  
 	           <result name="success" type="stream">  
-	               <param name="contentType">image/jpeg</param>  
+	              <param name="contentType">image/jpeg</param>  
 	              <param name="inputName">imageStream</param>  
 	              <param name="bufferSize">2048</param>  
 	           </result>  

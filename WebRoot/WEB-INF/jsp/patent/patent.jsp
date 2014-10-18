@@ -23,8 +23,8 @@
   <div class="container infowrap" style="position:relative;">
     <!-- <div class="row">
       <div class="col-md-8">-->
-      <a href="patent_list" class="btn btn-sm btn-warning" style="position:absolute; right:30px;top:14px;">添加专利</a>
-        <div class="info_top resource_top">
+<!--       <a href="patent_list" class="btn btn-sm btn-warning" style="position:absolute; right:30px;top:14px;">添加专利</a>
+ -->        <div class="info_top resource_top">
           <p>
             <strong>专利成果</strong>
             <span>Patent</span>
@@ -55,9 +55,10 @@
                                     <s:property value="name"/>
                                 </td>
                                 <td>
-                                    <s:iterator value="invertors">
+                                    <!-- <s:iterator value="invertors">
                                     	<s:property value="name"/>
-                                    </s:iterator>
+                                    </s:iterator> -->
+                                    <s:property value="username"/>
                                 </td>
                                 <td>
                                     <s:property value="authorizationNumber"/>

@@ -35,6 +35,11 @@ ModelDriven<Activity> {
 	
 	private static Logger logger = Logger.getLogger(ActivityAction.class);  
 	
+	
+	public void gittest()
+	{
+		
+	}
 	//获取所有事件
 	public String list() {
 		try {

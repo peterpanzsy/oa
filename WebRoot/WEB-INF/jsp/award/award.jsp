@@ -53,7 +53,7 @@
 							<s:property value="programName"/> 
 						</td>       
 						<td>
-							<s:property value="user.name"/> 
+							<s:property value="username"/> 
 						</td>   
 						<td>
 							<s:property value="name"/> 

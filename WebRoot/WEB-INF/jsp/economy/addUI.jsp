@@ -58,7 +58,7 @@
           <div class="form-group">
             <label class="col-sm-1 control-label">主题</label>
             <div class="col-sm-11">
-              <input id="eco_title" type="text" name="title" class="form-control" placeholder="主题">
+              <input id="eco_title" type="text" name="title" class="form-control" placeholder="主题" required>
             </div>
           </div>
          

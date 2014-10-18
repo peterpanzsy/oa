@@ -59,7 +59,7 @@
           <div class="form-group">
             <label class="col-sm-1 control-label">主题</label>
             <div class="col-sm-11">
-              <s:textfield id="eco_title" type="text" name="title" cssClass="form-control" ></s:textfield>
+              <s:textfield id="eco_title" type="text" name="title" cssClass="form-control" required></s:textfield>
             </div>
           </div>
          

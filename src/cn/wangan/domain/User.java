@@ -223,17 +223,21 @@ public class User {
 		allPrivilegeUrls.add("patent_list");
 		allPrivilegeUrls.add("award_list1");
 		allPrivilegeUrls.add("user_person");
-		allPrivilegeUrls.add("economy_addUI");
-		allPrivilegeUrls.add("info_addUI");
-		allPrivilegeUrls.add("paper_addUI");
-
 		if (!allPrivilegeUrls.contains(privURL)) {
 			return true;
 		}// b, 如果这个URL是需要控制的功能（登录后还得有对应的权限才能使用的），这是应判断权限
 		else {
+			String tempURL = privURL.split("_")[0];
+			System.out.println(tempURL);
 			for (Role role : roles) {
 				for (Privilege p : role.getPrivileges()) {
-					if (privURL.equals(p.getUrl())) {
+					if(!tempURL.equals("user")){
+						if (tempURL.equals(p.getUrl().split("_")[0])) {
+							return true;
+						}
+					}else if(privURL.equals("user_person")){
+						return true;
+					}else if("user_manager".equals(p.getUrl())){
 						return true;
 					}
 				}

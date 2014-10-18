@@ -126,10 +126,11 @@ public class PaperAction extends ActionSupport implements ModelDriven<Paper> {
 	}
 	/*后台的个人科研管理的添加*/
 	public String add(){
-		try {
+		/*try {*/
 			Paper paper = new Paper();
+			//System.out.println(name);
 			//用户处理
-			Set<User> users = new HashSet<User>();
+			/*Set<User> users = new HashSet<User>();
 			if(username!=null && !("".equals(username.trim()))){
 				for(String s:username.split(";")){
 					//检验用户是否存在,之前写的有问题，导致现在只能这样，
@@ -144,8 +145,8 @@ public class PaperAction extends ActionSupport implements ModelDriven<Paper> {
 						return "input"; 
 					}
 				}
-			}
-			paper.setAuthors(users);
+			}*/
+			/*paper.setAuthors(users);*/
 			//项目处理
 			Program program = new Program();
 			program = programService.findByName(programName);
@@ -153,10 +154,10 @@ public class PaperAction extends ActionSupport implements ModelDriven<Paper> {
 			
 			saveModel(paper);
 			paperService.save(paper,upload,uploadContentType,uploadFileName);
-		} catch (Exception e) {
+		/*} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(Logger2File.getTrace(e)); //将异常输出到文件
-		}
+		}*/
 		return "toList";
 	}
 	/*后台删除功能*/
@@ -174,7 +175,7 @@ public class PaperAction extends ActionSupport implements ModelDriven<Paper> {
 		try {
 			Paper paper =paperService.findById(model.getId());
 			//用户处理
-			Set<User> users = new HashSet<User>();
+			/*Set<User> users = new HashSet<User>();
 			if(username!=null && !("".equals(username.trim()))){
 				for(String s:username.split(";")){
 					//检验用户是否存在,之前写的有问题，导致现在只能这样，
@@ -189,10 +190,11 @@ public class PaperAction extends ActionSupport implements ModelDriven<Paper> {
 						return "input"; 
 					}
 				}
-			}
+			}*/
 			//users.add(u);
-			paper.setAuthors(users);
+			//paper.setAuthors(users);
 			//项目处理
+			paper.setUsername(username);
 			Program program = new Program();
 			program = programService.findByName(programName);
 			paper.setProgram(program);
@@ -209,7 +211,7 @@ public class PaperAction extends ActionSupport implements ModelDriven<Paper> {
 	public String editUI(){
 		try {
 			Paper paper = paperService.findById(model.getId());
-			if(paper.getAuthors()!=null){
+			/*if(paper.getAuthors()!=null){
 				int i = 0;
 				StringBuffer sb = new StringBuffer();
 				for(User u:paper.getAuthors()){
@@ -220,9 +222,9 @@ public class PaperAction extends ActionSupport implements ModelDriven<Paper> {
 					}
 					i++;
 				}
-				username = sb.toString();
-				ActionContext.getContext().put("username", username);
-			}
+				username = sb.toString();*/
+				ActionContext.getContext().put("username", paper.getUsername());
+			//}
 			ActionContext.getContext().put("paper",paper);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -238,6 +240,7 @@ public class PaperAction extends ActionSupport implements ModelDriven<Paper> {
 	}
 
 	public void saveModel(Paper paper){
+		paper.setUsername(model.getUsername());
 		paper.setDescription(model.getDescription());
 		paper.setMagazineName(model.getMagazineName());
 		paper.setName(model.getName());

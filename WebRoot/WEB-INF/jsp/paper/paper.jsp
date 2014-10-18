@@ -23,8 +23,8 @@
   <div class="container infowrap" style="position:relative;">
     <!-- <div class="row">
       <div class="col-md-8">-->
-      <a href="paper_list" class="btn btn-sm btn-warning" style="position:absolute; right:30px;top:14px;">添加论文</a>
-        <div class="info_top resource_top">
+<!--       <a href="paper_list" class="btn btn-sm btn-warning" style="position:absolute; right:30px;top:14px;">添加论文</a>
+ -->        <div class="info_top resource_top">
           <p>
             <strong>论文成果</strong>
             <span>Paper</span>
@@ -58,9 +58,10 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <s:iterator value="authors">
+                                    <!-- <s:iterator value="authors">
                                     	<s:property value="name"/>
-                                    </s:iterator>
+                                    </s:iterator> -->
+                                    <s:property value="username"/>
                                 </td>
                                 <td>
                                     <s:property value="program.name"/>

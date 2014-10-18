@@ -58,7 +58,7 @@
           <div class="form-group">
             <label class="col-sm-1 control-label">主题</label>
             <div class="col-sm-11">
-              <input id="info_title" type="text" name="title" class="form-control" placeholder="主题">
+              <input id="info_title" type="text" name="title" class="form-control" placeholder="主题" required>
             </div>
           </div>
          
@@ -150,12 +150,13 @@
             </div>
           </div>
         
-         <s:token></s:token>
+         
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
               <button id="info_submit" type="submit" class="btn btn-primary" style="float:right">发布</button>
             </div>
           </div>
+          <s:token></s:token>
         </s:form>
           
         </div>
@@ -163,14 +164,7 @@
     </div>
 
 
-      
-    
-  </div>
-</div>
 
-
-  </div>
-</div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js//jquery-1.11.1.min.js"></script>
@@ -198,7 +192,7 @@
 		//提交添加单击事件
 		$("#info_submit").click(function(){
 			//进行验证
-			var title = $("#info_title").val();
+			//var title = $("#info_title").val();
 			var content =$("#editor").html();
 			$("#info_content").val(content);
 		});
@@ -207,7 +201,7 @@
     </script>
     <!--文本编辑器配置-->
     <script>
-    $(function(){
+   $(function(){
       function initToolbarBootstrapBindings() {
         var fonts = ["宋体","微软雅黑","黑体",'Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 
               'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',

@@ -107,7 +107,7 @@
                 <div class="form-group">
                   <label class="col-sm-4 control-label">活动名称：</label>
                   <div class="col-sm-6">
-                    <input type="text" name="title" class="form-control" placeholder="填入活动名称" >
+                    <input type="text" name="title" class="form-control" placeholder="填入活动名称" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -145,7 +145,7 @@
                 <div class="form-group">
                   <label class="col-sm-4 control-label">活动时间：</label>
                   <div class="input-group date form_date col-sm-6" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                    <input class="form-control" name="date" size="16" type="text" value="" readonly>
+                    <input class="form-control" name="date" size="16" type="text" value="" readonly required>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>

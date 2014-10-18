@@ -23,6 +23,17 @@
 		<param-value>classpath:applicationContext*.xml</param-value>
 	</context-param>
 	
+	<!-- 配置页面不安全标签的过滤器 -->
+	<filter>
+		<filter-name>HtmlFilter</filter-name>
+		<filter-class>cn.wangan.filter.HtmlFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>HtmlFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	
 	<!-- 配置Struts2的核心的过滤器 -->
 	<filter>
 		<filter-name>struts2</filter-name>
@@ -32,6 +43,8 @@
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	
 
 
 	<welcome-file-list>

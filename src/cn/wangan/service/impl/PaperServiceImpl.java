@@ -104,10 +104,8 @@ public class PaperServiceImpl implements PaperService {
 			int pageSize = 12;
 			//查询总记录数,查找name属性或者作者属性
 			Long count = paperDao.getSearchTotalCount(searchContent);
-			System.out.println(count);
 			//得到当前页面的数据
 			List list = paperDao.getSearchCurrentPageList(searchContent,pageNum,pageSize);
-			System.out.println(list.size());
 			if(list!=null&&list.size()>0){
 				return new PageBean(pageNum,pageSize,count.intValue(),list);
 			}else{

@@ -19,7 +19,7 @@
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body onload="book_checker();server_checker()">
+<body onload="server_checker()">
 	  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -92,7 +92,7 @@
                  </td>
                    <td>
                      <s:a href="server_delete?id=%{id}">
-                         <button type="button" class="btn btn-xs btn-primary">删除</button>
+                         <button type="button" class="btn btn-xs btn-primary" return>删除</button>
                      </s:a>
                  </td>
                  <td class="edit">
@@ -156,7 +156,7 @@
                 <div class="form-group">
                   <label class="col-sm-4 control-label">位置：</label>
                   <div class="col-sm-6">
-                    <input name="address" id="address" type="text" class="form-control" placeholder="填入位置" onclick="server_checker()" onblur="server_checker()">
+                    <input name="address" id="address" type="text" class="form-control" placeholder="填入位置">
                   </div>
                 </div>            
                  
@@ -220,53 +220,53 @@
         <h4 class="modal-title" id="myModalLabel">修改服务器信息</h4>
       </div>
       <div class="modal-body">
-          <form class="form-horizontal" role="form" action="server_edit">
+          <form class="form-horizontal" id="editServer"  role="form" action="server_edit">
           		<s:hidden name="id"  id="server_id" value=""></s:hidden>
                 <div class="form-group">
                   <label class="col-sm-4 control-label">位置：</label>
                   <div class="col-sm-6">
-                    <input type="text" name="address" id="server_address" class="form-control" placeholder="1" >
+                    <input type="text" name="address" id="server_address" class="form-control" placeholder="" >
                   </div>
                 </div>            
                  
                 <div class="form-group">
                   <label class="col-sm-4 control-label">IP：</label>
                   <div class="col-sm-6">
-                    <input name="ip" type="text" id="server_ip" class="form-control" placeholder="1">
+                    <input name="ip" type="text" id="server_ip" class="form-control" placeholder="">
                   </div>
                 </div>               
         
                 <div class="form-group">
                   <label class="col-sm-4 control-label">操作系统：</label>
                   <div class="col-sm-6">
-                    <input type="text" name="system" id="server_system" class="form-control" placeholder="1" >
+                    <input type="text" name="system" id="server_system" class="form-control" placeholder="" >
                   </div>
                 </div>   
 
                 <div class="form-group">
                   <label class="col-sm-4 control-label">配置：</label>
                   <div class="col-sm-6">
-                    <input id="server_configure" name="configure" type="text" class="form-control" placeholder="1" >
+                    <input id="server_configure" name="configure" type="text" class="form-control" placeholder="" >
                   </div>
                 </div>      
                
                <div class="form-group">
                   <label class="col-sm-4 control-label">负责人：</label>
                   <div class="col-sm-6">
-                    <input id="server_username"  name="username" type="text" class="form-control" placeholder="1" >
+                    <input id="server_username"  name="username" type="text" class="form-control" placeholder="" >
                   </div>
                 </div> 
               <div class="form-group">
                   <label class="col-sm-4 control-label">备注：</label>
                   <div class="col-sm-6">
-                    <input id="server_description"  name="description" type="text" class="form-control" placeholder="1" >
+                    <input id="server_description"  name="description" type="text" class="form-control" placeholder="" >
                   </div>
                 </div> 
                <!-- 这是我新改的东西 --> 
                <div class="form-group">
                   <label class="col-sm-4 control-label">当前用途：</label>
                   <div class="col-sm-6">
-                    <input id="server_purpose"  name="purpose" type="text" class="form-control" placeholder="1" >
+                    <input id="server_purpose"  name="purpose" type="text" class="form-control" placeholder="" >
                   </div>
                 </div> 
 

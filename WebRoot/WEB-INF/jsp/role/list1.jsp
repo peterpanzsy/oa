@@ -67,9 +67,9 @@
               </thead>
               <tbody>
               
-               <s:iterator value="roleList">
+               <s:iterator value="roleList" status="vs">
 	   	<tr id="${id}">
-	   		<td class="roleid"><s:property value="id"/></td>
+	   		<td class="roleid"><s:property value="#vs.count"/></td>
 	   		<td class="name"><s:property value="name"/></td>
 	   		<td class="description"><s:property value="description"/></td>
 	   		<td>
@@ -178,7 +178,6 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="myModalLabel">权限设置</h4>
       </div>
-      <s:debug></s:debug>
       <s:form action="role_setPrivilege">
       <s:token></s:token>
       	<s:hidden name="id" value="" id="role_setPrivilege_id"></s:hidden>
