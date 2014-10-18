@@ -85,7 +85,7 @@
                                 <td>
                                     <s:a href="book_delete?id=%{id}">
                    
-                         				<button type="button" class="btn btn-xs btn-primary">删除</button>
+                         				<button type="button" class="btn btn-xs btn-primary" onclick="return confirm('你确定要删除吗')">删除</button>
                      				</s:a>
 				                 </td>
 				                 <td  class="edit">

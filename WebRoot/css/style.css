@@ -273,7 +273,7 @@ body{padding-top:50px; background: #f4f4f4;}
 .modal-title h4{font-family: "微软雅黑"}
 .modal-body{font-family: "微软雅黑"}
 .modal-body p.title{border-bottom: 1px solid #ccc; padding-left: 8px; padding-bottom: 5px; text-indent: 0;}
-.modal-body p span{background-color:#27ae61; color:#fff; }
+.modal-body p span{color:#000; }
 .modal-body .col-md-4 img{border:1px solid #bfbfbf; background: #f1f1f1; width:100px; height: 100px; padding:5px;margin:30px 0 0 15px;}
 .modal-body p{text-indent: 2em;}
 

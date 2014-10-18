@@ -73,7 +73,7 @@
                 			 <td><s:property value="author.name"/></td> 
                 			 <td><s:date name="date" format="yyyy-MM-dd" /></td> 
                 			 <td><s:a type="button" cssClass="btn btn-xs btn-primary" href="info_editUI?id=%{id}">修改</s:a></td>
-                 			 <td><s:a type="button" cssClass="btn btn-xs btn-primary" href="info_delete?id=%{id}">删除</s:a></td>
+                 			 <td><s:a type="button" cssClass="btn btn-xs btn-primary" onclick="return confirm('你确定要删除吗')" href="info_delete?id=%{id}">删除</s:a></td>
                 		 </tr>
                 	</s:iterator>
     

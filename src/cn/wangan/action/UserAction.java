@@ -146,7 +146,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			user.setName(model.getName());
 			//考虑到需求（一般是网安自己招新，so直接初始化密码1234）
 			//user.setPassword();
-			user.setPassword("1234");
+			user.setPassword("admin");
 			user.setGender(model.getGender());
 			/*if(roles!=null&&roles.size()>0){
 				user.setRoles(new HashSet<Role>(roles));
