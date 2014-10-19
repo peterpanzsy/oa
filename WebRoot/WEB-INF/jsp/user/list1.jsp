@@ -154,7 +154,7 @@
                 <div class="form-group">
                   <label class="col-sm-4 control-label">目前学历：</label>
                     <div class="col-sm-6">
-                    <s:radio list="{'本科','研究生','博士'}" cssClass="radio-inline" name="education"></s:radio>
+                    <s:radio list="{'老师','本科','研究生','博士'}" cssClass="radio-inline" name="education"></s:radio>
                   </div>
                 </div>
                  <div class="form-group">
@@ -225,7 +225,7 @@
                 <div class="form-group">
                   <label class="col-sm-4 control-label">目前学历：</label>
                     <div class="col-sm-6">
-                    <s:radio list="{'本科','研究生','博士'}" cssClass="radio-inline" name="education"></s:radio>
+                    <s:radio list="{'老师','本科','研究生','博士'}" cssClass="radio-inline" name="education"></s:radio>
                   </div>
                 </div>
                  <div class="form-group">
@@ -295,7 +295,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript"
-		src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+		src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script> 
     <script type="text/javascript"
 		src="js/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
      <script>

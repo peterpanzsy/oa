@@ -39,9 +39,16 @@
 		<!-- currentTrend属性，表示Program与Trend之间的1对1的关系 -->
 		<many-to-one name="currentTrend" class="Trend" column="currentTrendId" unique="true" cascade="all"></many-to-one>
 		
+		<!-- uploads属性，单向与UploadFiles建立一对多的关系 -->
+		<set name="uploads">
+			<key column="proID"></key>
+			<one-to-many class="UploadFiles"/>  
+		</set>
+		
 		<!-- report属性，表示Program与UploadFiles之间的1对1的关系（单向的关联关系比较好） -->
 		<many-to-one name="report" column="report" class="UploadFiles" unique="true"></many-to-one>
-	
+		
+		
 	
 	</class>
 	

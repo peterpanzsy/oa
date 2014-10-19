@@ -25,7 +25,7 @@
 		<property name="graduation" type="java.lang.String" length="100"></property>
 		<property name="ishere" type="java.lang.String" length="3"></property>
 	<!-- 属性roles 表示user与role之间的多对多的关系 -->
-		<set name="roles" table="user_role" order-by="userId" lazy="true">
+		<set name="roles" table="user_role" order-by="userId" lazy="false">
 			<key column="userId"></key>
 			<many-to-many class="Role" column="roleId"></many-to-many>
 		</set>

@@ -69,6 +69,7 @@
 			         </s:else>
 					</th>
                   <th>修改</th>
+                  <th>资料上传</th>
                   <th>删除</th>
                   <th>结题</th>
                 </tr>
@@ -96,6 +97,7 @@
 			                 	 </s:else>
 			                  </td>                  
 			                  <td class="edit"><a type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myModal">修改</a></td>
+			                  <td class="upload"><a type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#myModal3" >资料上传</a></td>
 			                  <td><s:a type="button" cssClass="btn btn-xs btn-danger" href="program_delete?id=%{id}" onclick='return confirm("你确定要删除?")'>删除</s:a></td>
 			                  <td class="report"><a type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#myModal2" >结题</a></td>
               			</tr>
@@ -261,6 +263,41 @@
   </div>
   </div>
   
+  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">上传资料</h4>
+      </div>
+      <div class="modal-body">
+          <s:form cssClass="form-horizontal" role="form" action="program_uploadFile" enctype="multipart/form-data">
+          		<s:token></s:token>
+          		<input type="hidden" name='id' value="" id="project_upload_hidden" />
+          		<div class="panel panel-default">
+          		<div class="panel-heading">
+                  <h3 class="panel-title">上传项目资料</h3>
+                </div>
+                 <div class="panel-body">  
+                <div class="form-group">
+                  <label class="col-sm-4 control-label">请选择文件：</label>
+                  <div class="col-sm-6" style="padding-top:7px;">
+                    <input name="uploadFiles" id="zhouyao" type="file"  multiple="multiple">
+                  </div>
+                </div>
+                </div>
+               </div>
+                           <div class="modal-footer">
+						        <button type="submit" class="btn btn-primary">提交</button>
+						        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+     						</div>
+               
+              </s:form>
+              
+      </div>
+    </div>
+  </div>
+  </div>
   
   
   
@@ -305,6 +342,15 @@
 				var id = $parent.attr("id");
 				$("#project_report_hidden").attr("value",id);
 			});
+			
+			$('.main .upload').click(function(){
+    			var $parent = $(this).parents();
+				var id = $parent.attr("id");
+				$("#project_upload_hidden").attr("value",id);
+				
+			});
+			
+			
     	})
    /**
      * 跳到指定的页码

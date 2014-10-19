@@ -55,6 +55,7 @@ public class UserServiceImpl implements UserService{
 		Set<Role> roleSet = new HashSet<Role>();
 		roleSet.add(role);
 		user.setRoles(roleSet);
+		System.out.println("-----------");
 		user.setPassword(DigestUtils.md5Hex(user.getPassword()));
 		userDao.save(user);
 	}

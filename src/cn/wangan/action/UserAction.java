@@ -146,7 +146,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			user.setName(model.getName());
 			//考虑到需求（一般是网安自己招新，so直接初始化密码1234）
 			//user.setPassword();
-			user.setPassword("admin");
+			user.setPassword("1234");
 			user.setGender(model.getGender());
 			/*if(roles!=null&&roles.size()>0){
 				user.setRoles(new HashSet<Role>(roles));
@@ -157,7 +157,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			user.setBirthday(model.getBirthday());
 			user.setEducation(model.getEducation());
 			user.setEmail(model.getEmail());
-			
 			if(!userService.findByName(user)){
 				//如果不存在
 				userService.save(user);
@@ -203,7 +202,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	}
 
 	/**个人信息（自己）修改 */
-	public String edit() throws Exception {
+	public String edit()  {
 		try {
 			//从数据库中读取到原来的User对象
 			User user = userService.findById(model.getId());
@@ -211,10 +210,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 				//如果数据库中没有该对象，直接返回List页面
 				return "HomeToList";
 			}
-			if(!DigestUtils.md5Hex(model.getPassword()).equals(user.getPassword())){
-				addFieldError("error", "原始密码错误，修改失败");
-				return "HomeToList";
-			} 
+			
 			
 			//修改User对象的属性
 			user.setName(model.getName());
@@ -230,6 +226,13 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			user.setEmail(model.getEmail());
 			user.setGraduation(model.getGraduation());
 			user.setResume(model.getResume());
+			if(!DigestUtils.md5Hex(model.getPassword()).equals(user.getPassword())){
+				addFieldError("error", "原始密码错误，修改失败");
+				userService.update(user);
+				ActionContext.getContext().getSession().remove("user");
+				ActionContext.getContext().getSession().put("user", user);
+				return "HomeToList";
+			} 
 			if(newpassword1 != null && !("".equals(newpassword1))){
 				user.setPassword(newpassword1);
 				user.setPassword(DigestUtils.md5Hex(user.getPassword()));
@@ -266,7 +269,10 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	}
 	/*后台的个人信息管理*/
 	public String person() {
+		
+		System.out.println("000000000000000");
 		try {
+			
 			User user = (User) ActionContext.getContext().getSession().get("user");
 			if(user.getPortrait() == null){
 				//TODO 这个地方不太合理，如果那个的头像为空，那么给他设置一个默认的头像

@@ -2,6 +2,7 @@ package cn.wangan.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -34,6 +35,8 @@ public class Program implements Serializable{
 	private Date endTime;
 	//项目结题报告
 	private UploadFiles report;
+	//项目上传资料
+	private Set<UploadFiles> uploads = new HashSet<UploadFiles>();
 	//组长，每个项目组只能有以为
 	private User leader;
 	//组员
@@ -123,6 +126,12 @@ public class Program implements Serializable{
 	}
 	public void setUsers_names(String users_names) {
 		this.users_names = users_names;
+	}
+	public Set<UploadFiles> getUploads() {
+		return uploads;
+	}
+	public void setUploads(Set<UploadFiles> uploads) {
+		this.uploads = uploads;
 	}
 	
 	

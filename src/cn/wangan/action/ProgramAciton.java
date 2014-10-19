@@ -22,6 +22,7 @@ import org.apache.struts2.json.annotations.JSON;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import cn.wangan.dao.ProgramDao;
 import cn.wangan.domain.PageBean;
 import cn.wangan.domain.Program;
 import cn.wangan.domain.Trend;
@@ -46,6 +47,8 @@ public class ProgramAciton extends ActionSupport implements
 	private UserService userService;
 	@Resource
 	private UploadFilesService fileService;
+	@Resource
+	private ProgramDao programdao; 
 	
 	private Program model = new Program();
 	
@@ -56,7 +59,14 @@ public class ProgramAciton extends ActionSupport implements
 	private File upload; // 实际上传文件
 	private String uploadContentType; // 文件的内容类型
 	private String uploadFileName; // 上传文件名
-
+	
+	
+	//上传资料
+	private File[] uploadFiles; // 实际上传文件
+	private String[] uploadFilesContentType; // 文件的内容类型
+	private String[] uploadFilesFileName; // 上传文件名
+	private List<UploadFiles> uploads = new ArrayList<UploadFiles>();
+	
 	private static Logger logger = Logger.getLogger(ProgramAciton.class);  
 	
 	//用来接受页面传来的当前页码数，默认第一页
@@ -182,6 +192,39 @@ public class ProgramAciton extends ActionSupport implements
 		return "end";
 	}
 	
+	
+	/*上传项目资料*/
+	public String uploadFile(){
+		Program program = programService.findById(model.getId());
+		String targetDirectory = ServletActionContext.getServletContext().getRealPath("/"+"files/");//获得路径  
+		System.out.println(targetDirectory);
+		System.out.println("++++"+uploadFiles);
+		for(int i = 0 ; i < uploadFiles.length ; i++){  
+            String fileName = uploadFilesFileName[i]; //上传的文件名  
+            String type = uploadFilesContentType[i]; //文件类型  
+            String realName = UUID.randomUUID().toString() +   
+                             getExt(fileName); //保存的文件名称、使用UUID+后缀进行保存  
+            File target = new File(targetDirectory,realName);  
+            try {  
+                FileUtils.copyFile(uploadFiles[i],target);//上传至服务器的目录  
+            } catch (IOException e) {  
+           	 throw new RuntimeException();
+            }   
+            //把路径()写入数据库 
+            UploadFiles uf = new UploadFiles(); //创建文件  
+            uf.setUploadContentType(type);  
+            uf.setUploadFileName(fileName);  
+            uf.setUploadRealName(realName); 
+            fileService.save(uf);
+            uploads.add(uf);
+        }  
+		program.setUploads(new HashSet<UploadFiles>(uploads));
+		System.out.println(program.getUploads());
+		programdao.update(program);
+		uploads.clear();
+		return "toList";
+	}
+	
 	/** 修改 */
 	public String edit() throws Exception {
 		
@@ -245,7 +288,7 @@ public class ProgramAciton extends ActionSupport implements
 		String targetDirectory = ServletActionContext.getServletContext()
 				.getRealPath("/" + "files/");// 获得路径
 		StringBuffer filename = new StringBuffer();
-
+		
 		String fileName = uploadFileName; // 上传的文件名
 		String type = uploadContentType; // 文件类型
 		String realName = UUID.randomUUID().toString() + getExt(fileName); // 保存的文件名称、使用UUID+后缀进行保存
@@ -330,5 +373,46 @@ public class ProgramAciton extends ActionSupport implements
 	public void setPageNum(int pageNum) {
 		this.pageNum = pageNum;
 	}
+
+	public File[] getUploadFiles() {
+		return uploadFiles;
+	}
+
+	public void setUploadFiles(File[] uploadFiles) {
+		this.uploadFiles = uploadFiles;
+	}
+
+	public String[] getUploadFilesContentType() {
+		return uploadFilesContentType;
+	}
+
+	public void setUploadFilesContentType(String[] uploadFilesContentType) {
+		this.uploadFilesContentType = uploadFilesContentType;
+	}
+
+	public String[] getUploadFilesFileName() {
+		return uploadFilesFileName;
+	}
+
+	public void setUploadFilesFileName(String[] uploadFilesFileName) {
+		this.uploadFilesFileName = uploadFilesFileName;
+	}
+
+	public List<UploadFiles> getUploads() {
+		return uploads;
+	}
+
+	public void setUploads(List<UploadFiles> uploads) {
+		this.uploads = uploads;
+	}
+
+	public ProgramDao getProgramdao() {
+		return programdao;
+	}
+
+	public void setProgramdao(ProgramDao programdao) {
+		this.programdao = programdao;
+	}
+	
 	
 }
