@@ -1,7 +1,9 @@
 package cn.wangan.dao.impl;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.wangan.base.BaseDaoImpl;
 import cn.wangan.dao.ProgramDao;
 import cn.wangan.domain.Program;
+import cn.wangan.domain.UploadFiles;
 import cn.wangan.domain.User;
 @Repository("programDao")
 @SuppressWarnings("unchecked")
@@ -29,6 +32,7 @@ public class ProgramDaoImpl extends BaseDaoImpl<Program> implements ProgramDao {
 		return (Program) getSession().createQuery("FROM Program p Where p.name = ?").setParameter(0,programName).uniqueResult();
 		
 	}
+
 
 
 }

@@ -35,4 +35,6 @@ public interface ProgramService {
 
 	Program findByName(String programName);
 
+	void update(Program program, List<UploadFiles> uploads);
+
 }

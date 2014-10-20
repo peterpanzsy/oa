@@ -4,6 +4,7 @@ import java.util.List;
 
 import cn.wangan.base.BaseDao;
 import cn.wangan.domain.Program;
+import cn.wangan.domain.UploadFiles;
 import cn.wangan.domain.User;
 
 public interface ProgramDao extends BaseDao<Program>{

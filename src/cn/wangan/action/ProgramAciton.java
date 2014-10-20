@@ -47,8 +47,6 @@ public class ProgramAciton extends ActionSupport implements
 	private UserService userService;
 	@Resource
 	private UploadFilesService fileService;
-	@Resource
-	private ProgramDao programdao; 
 	
 	private Program model = new Program();
 	
@@ -218,9 +216,10 @@ public class ProgramAciton extends ActionSupport implements
             fileService.save(uf);
             uploads.add(uf);
         }  
-		program.setUploads(new HashSet<UploadFiles>(uploads));
+		//program.setUploads(new HashSet<UploadFiles>(uploads));
+		programService.update(program,uploads);
 		System.out.println(program.getUploads());
-		programdao.update(program);
+		//programdao.update(program);
 		uploads.clear();
 		return "toList";
 	}
@@ -405,14 +404,5 @@ public class ProgramAciton extends ActionSupport implements
 	public void setUploads(List<UploadFiles> uploads) {
 		this.uploads = uploads;
 	}
-
-	public ProgramDao getProgramdao() {
-		return programdao;
-	}
-
-	public void setProgramdao(ProgramDao programdao) {
-		this.programdao = programdao;
-	}
-	
 	
 }

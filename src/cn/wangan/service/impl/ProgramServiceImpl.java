@@ -92,4 +92,15 @@ public class ProgramServiceImpl implements ProgramService {
 		return programDao.findByName(programName);
 	}
 
+	public void update(Program program, List<UploadFiles> uploads) {
+		if(uploads==null){
+			return;
+		}else{
+			Set<UploadFiles> newUploads = program.getUploads();
+			newUploads.addAll(uploads);
+			program.setUploads(newUploads);
+			programDao.update(program);
+		}		
+	}
+
 }
