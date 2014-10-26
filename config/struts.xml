@@ -40,25 +40,25 @@
 			
 		</interceptors>
 		<!-- 设置全局默认的拦截器栈 -->
-		<!-- <default-interceptor-ref name="mydefualt"></default-interceptor-ref>
+		<default-interceptor-ref name="mydefualt"></default-interceptor-ref>
 
 		<default-action-ref name="notFound" />  
- -->
-		<!-- <global-results>
+
+		<global-results>
 			全局的异常页面	
 			<result name="globalException">/globalException.jsp</result>
 		
 			<result name="error">/error.jsp</result>
 			<result name="loginout_loginUI">/WEB-INF/jsp/loginout/loginUI.jsp</result>
-		</global-results> -->
-		<!-- 开发的时候注释掉了，最后释放	-->
-		<!-- <global-exception-mappings>
+		</global-results>
+		开发的时候注释掉了，最后释放	
+		<global-exception-mappings>
 			<exception-mapping result="globalException" exception="java.lang.Exception"></exception-mapping>
 		</global-exception-mappings>
 	
 		<action name="notFound" class="notFoundAction">  
             <result name="success">error.jsp</result>  
-        </action>  -->
+        </action> 
 	</package>
 
 
