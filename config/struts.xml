@@ -5,7 +5,7 @@
 
 <struts>
 	<!-- 配置为开发模式 -->
-	<constant name="struts.devMode" value="ture" />
+	<constant name="struts.devMode" value="false" />
 	<!-- 把action扩展名改为.do <constant name="struts.action.extension" value="do" 
 		/> -->
 	<!-- 把主题设为simple -->
@@ -13,8 +13,7 @@
 	<!-- 设置文件上传的大小 -->	
 	<constant name="struts.multipart.maxSize" value="88888888888"/>
 	<!-- 全局引用自定义拦截器的配置 -->
-	 <package name="common-default" extends="json-default"
-		namespace="/"> 
+	 <package name="common-default" extends="json-default" namespace="/"> 
 		
 		
 		<!-- 配置拦截器 -->
@@ -45,13 +44,13 @@
 		<default-action-ref name="notFound" />  
 
 		<global-results>
-			全局的异常页面	
+			<!-- 全局的异常页面 -->	
 			<result name="globalException">/globalException.jsp</result>
 		
 			<result name="error">/error.jsp</result>
 			<result name="loginout_loginUI">/WEB-INF/jsp/loginout/loginUI.jsp</result>
 		</global-results>
-		开发的时候注释掉了，最后释放	
+		<!-- 开发的时候注释掉了，最后释放	 -->
 		<global-exception-mappings>
 			<exception-mapping result="globalException" exception="java.lang.Exception"></exception-mapping>
 		</global-exception-mappings>
