@@ -24,7 +24,6 @@
 </head>
 <body onload="person_check()">
 	  <s:include value="/WEB-INF/jsp/Navi-bar/Navi-bar(admin).jsp"></s:include>
-	  <s:debug></s:debug>
 	  <s:hidden value="%{#u.id}"></s:hidden>
 	  <div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
@@ -40,7 +39,6 @@
           <div class="table-responsive">
              
              <form id="defaultForm"  action="user_edit">
-           
             <table class="table table-bordered">
               <caption>个人信息修改</caption>
                 <s:hidden name="id" value="%{#u.id}"></s:hidden>
@@ -119,6 +117,21 @@
                 <tr>
                   <td width="10%"><strong>联系方式： *</strong></td>
                   <td><input placeholder  ="" name="phone" class="form-control" value="${u.phone }"   pattern="[0-9]{11}" title="请输入正确的手机格式!">
+                  </td>           
+                </tr>
+                <tr>
+                  <td width="10%"><strong>QQ账号</strong></td>
+                  <td><input placeholder  ="" name="QQaccount" class="form-control" value="${u.QQaccount }" >
+                  </td>           
+                </tr>
+                <tr>
+                  <td width="10%"><strong>YY账号： </strong></td>
+                  <td><input placeholder  ="" name="YYaccount" class="form-control" value="${u.YYaccount }"  >
+                  </td>           
+                </tr>
+                <tr>
+                  <td width="10%"><strong>Skype账号： </strong></td>
+                  <td><input placeholder  ="" name="Skypeaccount" class="form-control" value="${u.skypeaccount }" >
                   </td>           
                 </tr>
                 <tr>

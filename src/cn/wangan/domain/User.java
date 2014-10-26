@@ -36,6 +36,12 @@ public class User {
 	private String ishere;//是否仍在网安
 	private Set<Role> roles = new HashSet<Role>();  //表示该用户所在的岗位
 	private UploadFiles portrait = null;
+	
+	//社交账号
+	private String QQaccount;
+	private String YYaccount;
+	private String Skypeaccount;
+	
 	public String getEmail() {
 		return email;
 	}
@@ -204,6 +210,30 @@ public class User {
 
 	public void setPortrait(UploadFiles portrait) {
 		this.portrait = portrait;
+	}
+
+	public String getQQaccount() {
+		return QQaccount;
+	}
+
+	public void setQQaccount(String qQaccount) {
+		QQaccount = qQaccount;
+	}
+
+	public String getYYaccount() {
+		return YYaccount;
+	}
+
+	public void setYYaccount(String yYaccount) {
+		YYaccount = yYaccount;
+	}
+
+	public String getSkypeaccount() {
+		return Skypeaccount;
+	}
+
+	public void setSkypeaccount(String skypeaccount) {
+		Skypeaccount = skypeaccount;
 	}
 
 	public boolean hasPrivilegeByName(String privURL) {

@@ -252,6 +252,8 @@ public class ProgramAciton extends ActionSupport implements
 			map.put("name",program.getName());
 			map.put("leader",program.getLeader().getName());
 			StringBuffer username =new StringBuffer();
+			StringBuffer filenames =new StringBuffer();
+			StringBuffer fileids =new StringBuffer();
 			/*for(User u:program.getUsers()){
 				username.append(u.getName()).append("  ");
 			}*/
@@ -276,6 +278,20 @@ public class ProgramAciton extends ActionSupport implements
 				map.put("report",program.getReport().getUploadFileName());
 				map.put("fileId", program.getReport().getId());
 			}
+			
+			for(UploadFiles f:program.getUploads()){
+				filenames.append(f.getUploadFileName()).append("*");
+				fileids.append(f.getId()).append("*");
+			}
+			
+			String filenames_string=filenames.toString();
+			String fileids_string=fileids.toString();
+			
+			
+			map.put("filenames",filenames_string);
+			map.put("fileids", fileids_string);
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(Logger2File.getTrace(e)); //将异常输出到文件

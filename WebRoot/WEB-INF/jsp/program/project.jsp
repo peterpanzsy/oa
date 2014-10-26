@@ -221,6 +221,8 @@
 		        </div>
 		        
 		        <p><strong id="program_isEnd"></strong></p>
+		        <p><strong>项目资料:</strong></p>
+		        <div class="files"  id="program_materials"></div>
 		      </div>
       </div>
       <div class="modal-footer">
@@ -269,6 +271,8 @@
 			$("#progressbar").children().remove();
 			$("#program_isEnd").text("");
 			$("#program_isEnd").children().remove();
+			$("#program_materials").text("");
+			$("#program_materials").children().remove();
 			$(".trendsproject").remove();
 			$("#projectName").text(data.name);
 			$("#projectLeader").text(data.leader);
@@ -290,7 +294,26 @@
 				$a.attr("href","filedown_download?id="+data.fileId);
 				$a.text(data.report);
 				$("#program_isEnd").append($a);
+
 			}
+			
+			//填充资料栈部分
+			//$("#program_materials").text("项目资料:");
+			var fnames=new Array();
+			var fids=new Array();
+				//文件名以*隔开
+			fnames=data.filenames.split("*");
+			fids=data.fileids.split("*");
+			for (i=0;i<fnames.length;i++)
+			{
+				var $f=$("<a></a>");
+				$f.attr("href","filedown_download?id="+fids[i]);
+				$f.attr("class","files");
+				$f.text(fnames[i]);
+				$("#program_materials").append($f);
+				$("#program_materials").append("<br>");
+			}
+			
 			var proceeding = data.proceeding;
 			
 			var $a =$("<div></div>");

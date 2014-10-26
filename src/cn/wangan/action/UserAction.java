@@ -89,7 +89,9 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 				map.put("resume", currentUser.getResume());
 				map.put("contactor", currentUser.getContactor());
 				map.put("ephone", currentUser.getEphone());
-				
+				map.put("QQaccount", currentUser.getQQaccount());
+				map.put("YYaccount", currentUser.getYYaccount());
+				map.put("skypeaccount", currentUser.getSkypeaccount());
 				map.put("portraitName", currentUser.getPortrait().getUploadRealName());
 				Set<Program> programs=currentUser.getPrograms();
 				String[] program_string=new String[programs.size()];
@@ -157,6 +159,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			user.setBirthday(model.getBirthday());
 			user.setEducation(model.getEducation());
 			user.setEmail(model.getEmail());
+			
 			if(!userService.findByName(user)){
 				//如果不存在
 				userService.save(user);
@@ -226,6 +229,9 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			user.setEmail(model.getEmail());
 			user.setGraduation(model.getGraduation());
 			user.setResume(model.getResume());
+			user.setQQaccount(model.getQQaccount());
+			user.setYYaccount(model.getYYaccount());
+			user.setSkypeaccount(model.getSkypeaccount());
 			if(!DigestUtils.md5Hex(model.getPassword()).equals(user.getPassword())){
 				addFieldError("error", "原始密码错误，修改失败");
 				userService.update(user);
@@ -270,7 +276,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	/*后台的个人信息管理*/
 	public String person() {
 		
-		System.out.println("000000000000000");
 		try {
 			
 			User user = (User) ActionContext.getContext().getSession().get("user");

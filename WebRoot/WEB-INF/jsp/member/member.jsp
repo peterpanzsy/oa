@@ -132,6 +132,9 @@
          	<p><strong>专业：</strong><span id="u_major"></span></p>
          	<p><strong>出生日期：</strong><span id="u_birth"></span></p>
          	<p><strong>联系方式：</strong><span id="u_phone"></span></p>
+         	<p><strong>QQ：</strong><span id="u_qq"></span></p>
+         	<p><strong>YY：</strong><span id="u_yy"></span></p>
+         	<p><strong>Skype：</strong><span id="u_skype"></span></p>
          	<p><strong>邮箱：</strong><span id="u_email"></span></p>
          	<p><strong>加入年份：</strong><span id="u_recruit"></span></p>
  	        <p><strong>紧急联系人：</strong><span id="u_contactor"></span></p>
@@ -215,6 +218,9 @@
     		$("#u_major").text(data.major);
     		$("#u_birth").text(data.birthday);
     		$("#u_phone").text(data.phone);
+    		$("#u_qq").text(data.QQaccount);
+    		$("#u_yy").text(data.YYaccount);
+    		$("#u_skype").text(data.skypeaccount);
     		$("#u_email").text(data.email);
     		$("#u_recruit").text(data.recruit);
     		$("#u_contactor").text(data.contactor);
