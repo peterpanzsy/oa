@@ -10,10 +10,10 @@
             <generator class="native"/>
 		</id>
 		<property name="username" type="java.lang.String" ></property>
-		<property name="name" >	</property>
-		<property name="authorizationNumber" ></property>
-		<property name="description" ></property>
-		<property name="type" >	</property>
+		<property name="name" type="java.lang.String">	</property>
+		<property name="authorizationNumber" type="java.lang.String"></property>
+		<property name="description" type="java.lang.String"></property>
+		<property name="type" type="java.lang.String" >	</property>
 		
 		<!-- inventors属性 ，表示Patent与User之间的多对多的关系-->
 		<set name="inventors" table="patent_user">

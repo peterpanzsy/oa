@@ -9,27 +9,27 @@
 		<id name="id" type="java.lang.Long" length="100">
             <generator class="native"/>
 		</id>
-		<property name="username"></property>
-		<property name="name" >	</property>
-		<property name="theme" ></property>
-		<property name="summary" ></property>
-		<property name="type" ></property>
-		<property name="state" ></property>
+		<property name="username" type="java.lang.String">	</property>
+		<property name="name" type="java.lang.String">	</property>
+		<property name="theme" type="java.lang.String"></property>
+		<property name="summary" type="java.lang.String"></property>
+		<property name="type" type="java.lang.String"></property>
+		<property name="state" type="java.lang.String" ></property>
 		
-		<property name="magazineName" ></property>
-		<property name="publishTime" ></property>
-		<property name="description" >	</property>
-		<property name="qi" ></property>
-		<property name="juan" ></property>
-		<property name="pagination" ></property>
+		<property name="magazineName" type="java.lang.String"></property>
+		<property name="publishTime" type="java.lang.String"></property>
+		<property name="description" type="java.lang.String">	</property>
+		<property name="qi" type="java.lang.Integer"></property>
+		<property name="juan" type="java.lang.Integer"></property>
+		<property name="pagination" type="java.lang.String" ></property>
 		
-		<property name="SCIIndex" ></property>
-		<property name="EIIndex" ></property>
-		<property name="homeImportantArticle" ></property>
-		<property name="homeCoreArtile" ></property>
+		<property name="SCIIndex" type="java.lang.String"></property>
+		<property name="EIIndex" type="java.lang.String"></property>
+		<property name="homeImportantArticle" type="java.lang.Integer" ></property>
+		<property name="homeCoreArtile" type="java.lang.Integer"></property>
 		
-		<property name="SCIQuote" ></property>
-		<property name="EIQuote" ></property>
+		<property name="SCIQuote" type="java.lang.Integer" ></property>
+		<property name="EIQuote" type="java.lang.Integer"></property>
 		
 		<!-- authors属性 ，表示Paper与User之间的多对多的关系-->
 		<set name="authors" table="paper_user">

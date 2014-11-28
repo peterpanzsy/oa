@@ -38,15 +38,20 @@ public class PatentDaoImpl extends BaseDaoImpl<Patent> implements PatentDao{
 	@SuppressWarnings("rawtypes")
 	public List getSearchCurrentPageList(String searchContent, int pageNum,
 			int pageSize) {
-		List list =	getSession().createSQLQuery("SELECT * FROM patent p WHERE p.id IN " +
-			"(SELECT pu.patentId FROM patent_user pu WHERE pu.userId IN " +
-			"(SELECT u.id from user u WHERE u.name like ?))")
-			.addEntity(Patent.class)
-			.setParameter(0,"%"+searchContent.trim()+"%")
-			.setFirstResult((pageNum-1)*pageSize)
-			.setMaxResults(pageSize)
-			.list();
-		list.addAll(getSession().createQuery("FROM Patent p where p.name like ? ").setParameter(0,"%"+searchContent.trim()+"%").list());
+		String hql ="FROM Patent p  WHERE p.name like ?  ORDER BY p.id DESC";
+		System.out.println(searchContent);
+		List list = getSession().createQuery(hql).setParameter(0, "%"+searchContent+"%")
+				.setFirstResult((pageNum-1)*pageSize)
+				.setMaxResults(pageSize).list();	
+//		List list =	getSession().createSQLQuery("SELECT * FROM patent p WHERE p.id IN " +
+//			"(SELECT pu.patentId FROM patent_user pu WHERE pu.userId IN " +
+//			"(SELECT u.id from user u WHERE u.name like ?))")
+//			.addEntity(Patent.class)
+//			.setParameter(0,"%"+searchContent.trim()+"%")
+//			.setFirstResult((pageNum-1)*pageSize)
+//			.setMaxResults(pageSize)
+//			.list();
+//		list.addAll(getSession().createQuery("FROM Patent p where p.name like ? ").setParameter(0,"%"+searchContent.trim()+"%").list());
 		return list;
 	}
 
