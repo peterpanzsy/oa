@@ -39,12 +39,12 @@
         </div>
       </div>
     </div>
-
-    <div class="container-fluid">
+    
+   <!--   <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li><a href="admin_member.html">人员管理</a></li>
+            <li><a href="program_show">项目管理</a></li>
             <li><a href="admin_info.html">通知发布</a></li>
             <li><a href="admin_info.html">项目管理</a></li>
             <li><a href="admin_economy.html">财务管理</a></li>
@@ -52,7 +52,15 @@
             <li><a href="admin_resource.html">资源管理</a></li>
             <li class="active"><a href="admin_paper.html">科研管理</a></li>
           </ul>    
-        </div>
+        </div>-->
+         <div class="col-sm-3 col-md-2 sidebar">
+				<ul class="nav nav-sidebar">
+					<s:iterator value="#session.topPrivileg">
+						<li><a href="${url}">${name}</a>
+						</li>
+					</s:iterator>
+				</ul>
+			</div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">         
           <h1 class="page-header">论文管理</h1>
         <s:form action="paper_edit" cssClass="form-horizontal" role="form" enctype="multipart/form-data">

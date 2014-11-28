@@ -17,7 +17,7 @@
 		<property name="birthday" type="java.lang.String" length="30">	</property>
 		<property name="education" type="java.lang.String" length="20">	</property>
 		<property name="email" type="java.lang.String" length="40">	</property>
-		<property name="recruitment" ></property>
+		<property name="recruitment" type="integer" length="11"></property>
 		<property name="resume" type="java.lang.String" length="1000"></property>
 		<property name="major" type="java.lang.String" length="20"></property>
 		<property name="contactor" type="java.lang.String" length="20"></property>

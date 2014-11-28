@@ -14,7 +14,7 @@
 		<property name="startTime" type="java.util.Date" ></property>
 		<property name="proceeding" type="java.lang.String" ></property>
 		<property name="users_names" type="java.lang.String" ></property>
-		<property name="end" ></property>
+		<property name="end" type="integer" length="11" ></property>
 		<property name="endTime" type="java.util.Date" ></property>
 		
 		

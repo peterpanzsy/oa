@@ -32,11 +32,11 @@
                 <!--图书信息-->
                 <div class="book">
                     <p>
-                        图书资源
+                        服务器资源
                     </p>
                     <form action="server_search" class="form-horizontal" role="form">
                         <button class="btn btn-warning btn-sm rt" type="submit">
-                            图书查询
+                            服务器查询
                         </button>
                         <div class="input-group input-group-sm col-sm-4 rt">
                             <span class="input-group-addon "><i class="glyphicon glyphicon-search"></i></span>

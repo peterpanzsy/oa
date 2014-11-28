@@ -23,20 +23,19 @@
             <!-- <div class="row">
             <div class="col-md-8">-->
             <div class="info_top resource_top">
-                <p>
-                    <strong>小组资源</strong>
-                    <span>Resource</span>
+                <p>专利 Patenr
+                     
                 </p>
             </div>
             <div class="info_content resource_content">
                 <!--图书信息-->
                 <div class="book">
                     <p>
-                        论文资源
+                        
                     </p>
                     <form action="patent_search" class="form-horizontal" role="form">
                         <button class="btn btn-warning btn-sm rt" type="submit">
-                            论文查询
+                            查询
                         </button>
                         <div class="input-group input-group-sm col-sm-4 rt">
                             <span class="input-group-addon "><i class="glyphicon glyphicon-search"></i></span>
