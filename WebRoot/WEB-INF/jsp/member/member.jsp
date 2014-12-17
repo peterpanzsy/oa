@@ -130,6 +130,8 @@
          	<p><strong>性别：</strong><span id="u_gender"></span></p>
          	<p><strong>学历：</strong><span id="u_education"></span></p>
          	<p><strong>专业：</strong><span id="u_major"></span></p>
+         	<p><strong>学号：</strong><span id="u_studentno"></span></p>
+         	<p><strong>班级：</strong><span id="u_classno"></span></p>
          	<p><strong>出生日期：</strong><span id="u_birth"></span></p>
          	<p><strong>联系方式：</strong><span id="u_phone"></span></p>
          	<p><strong>QQ：</strong><span id="u_qq"></span></p>
@@ -216,6 +218,8 @@
     		$("#u_gender").text(data.gender);
     		$("#u_education").text(data.education);
     		$("#u_major").text(data.major);
+    		$("#u_studentno").text(data.studentno);
+    		$("#u_classno").text(data.classno);
     		$("#u_birth").text(data.birthday);
     		$("#u_phone").text(data.phone);
     		$("#u_qq").text(data.QQaccount);

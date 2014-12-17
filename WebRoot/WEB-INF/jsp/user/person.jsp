@@ -98,6 +98,16 @@
                   <td><input type="text" name="major"  placeholder  ="" class="form-control" value="${u.major}" >
                   </td>           
                 </tr>
+                  <tr>
+                  <td width="10%"><strong>学号： *</strong></td>
+                  <td><input type="text" name="studentno"  placeholder  ="" class="form-control" value="${u.studentno}" >
+                  </td>           
+                </tr>
+                <tr>
+                  <td width="10%"><strong>班级： *</strong></td>
+                  <td><input type="text" name="classno"  placeholder  ="" class="form-control" value="${u.classno}" >
+                  </td>           
+                </tr>
                 <tr>
                   <td width="10%"><strong>生日：*</strong></td>
                   <td><div class="input-group date form_date col-sm-6" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">

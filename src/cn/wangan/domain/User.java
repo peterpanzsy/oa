@@ -42,6 +42,25 @@ public class User {
 	private String YYaccount;
 	private String Skypeaccount;
 	
+	private String classno;//班级
+	private String studentno;//学号
+	
+	public String getClassno() {
+		return classno;
+	}
+
+	public void setClassno(String classno) {
+		this.classno = classno;
+	}
+
+	public String getStudentno() {	
+		return studentno;
+	}
+
+	public void setStudentno(String studentno) {
+		this.studentno = studentno;
+	}
+
 	public String getEmail() {
 		return email;
 	}

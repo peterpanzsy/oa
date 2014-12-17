@@ -91,6 +91,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 				map.put("ephone", currentUser.getEphone());
 				map.put("QQaccount", currentUser.getQQaccount());
 				map.put("YYaccount", currentUser.getYYaccount());
+				map.put("classno", currentUser.getClassno());
+				map.put("studentno", currentUser.getStudentno());
 				map.put("skypeaccount", currentUser.getSkypeaccount());
 				map.put("portraitName", currentUser.getPortrait().getUploadRealName());
 				Set<Program> programs=currentUser.getPrograms();
@@ -232,6 +234,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			user.setQQaccount(model.getQQaccount());
 			user.setYYaccount(model.getYYaccount());
 			user.setSkypeaccount(model.getSkypeaccount());
+			user.setClassno(model.getClassno());
+			user.setStudentno(model.getStudentno());
 			if(!DigestUtils.md5Hex(model.getPassword()).equals(user.getPassword())){
 				addFieldError("error", "原始密码错误，修改失败");
 				userService.update(user);

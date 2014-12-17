@@ -27,6 +27,8 @@
 		<property name="QQaccount" type="java.lang.String" length="20"></property>
 		<property name="YYaccount" type="java.lang.String" length="20"></property>
 		<property name="Skypeaccount" type="java.lang.String" length="20"></property>
+		<property name="classno" type="java.lang.String" length="20"></property>
+		<property name="studentno" type="java.lang.String" length="20"></property>
 	<!-- 属性roles 表示user与role之间的多对多的关系 -->
 		<set name="roles" table="user_role" order-by="userId" lazy="false">
 			<key column="userId"></key>
