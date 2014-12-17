@@ -110,7 +110,7 @@
                 <tr>
                   <td width="10%"><strong>目前学历：*</strong></td>
                   <td>
-                  <s:radio name="education" list="%{#{'老师':'老师','博士':'博士','硕士':'硕士','本科':'本科'}}" value="#u.education" theme="simple"></s:radio>
+                  <s:radio name="education" list="%{#{'老师':'老师','博士':'博士','研究生':'硕士','本科':'本科'}}" value="#u.education" theme="simple"></s:radio>
                   </td>           
                 </tr> 
 
